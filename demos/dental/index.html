@@ -3,21 +3,35 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="version" content="2.0" />
   <title>SmileCraft Dental &amp; Implant Studio | Painless Dental Care</title>
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <style>body { font-family: 'Inter', system-ui, sans-serif; }</style>
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    section[id] { scroll-margin-top: 80px; }
+    input[type="date"], input[type="time"] {
+      color: #0f172a !important;
+      background-color: #ffffff !important;
+      min-height: 44px;
+      color-scheme: light;
+    }
+  </style>
 </head>
-<body class="bg-white text-slate-900 antialiased">
+<body class="bg-white text-slate-900 antialiased pb-16">
   <nav class="sticky top-0 z-30 bg-white/95 backdrop-blur border-b border-slate-100">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between">
-      <a href="#top" class="font-extrabold text-lg text-teal-800 tracking-tight">SmileCraft Dental</a>
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <a href="/#demos" class="text-xs font-semibold text-indigo-600 hover:text-indigo-500 bg-indigo-50 px-2.5 py-1 rounded-lg">&larr; Demos</a>
+        <a href="#top" class="font-extrabold text-base sm:text-lg text-teal-800 tracking-tight">SmileCraft Dental</a>
+      </div>
       <div class="hidden sm:flex items-center gap-6 text-sm font-medium text-slate-600">
         <a href="#treatments" class="hover:text-teal-700">Treatments</a>
         <a href="#doctors" class="hover:text-teal-700">Doctors</a>
         <a href="#reviews" class="hover:text-teal-700">Reviews</a>
+        <a href="#location" class="hover:text-teal-700">Location</a>
         <a href="#book" class="px-4 py-2 rounded-xl bg-teal-700 hover:bg-teal-600 text-white font-semibold transition">Book Appointment</a>
       </div>
     </div>
@@ -99,28 +113,106 @@
     <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8 space-y-4">
       <h2 class="text-2xl font-bold text-slate-900 text-center">Book Your Clinic Visit</h2>
       <form id="apptForm" class="space-y-3">
-        <input id="ptName" type="text" required placeholder="Patient Full Name" class="w-full rounded-xl border border-slate-300 px-4 py-2.5 text-sm" />
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <input id="ptPhone" type="tel" required placeholder="Mobile / WhatsApp Number" class="w-full rounded-xl border border-slate-300 px-4 py-2.5 text-sm" />
-          <input id="ptDate" type="date" required class="w-full rounded-xl border border-slate-300 px-4 py-2.5 text-sm" />
+        <div>
+          <label for="ptName" class="block text-xs font-semibold text-slate-700 mb-1">Patient Full Name</label>
+          <input id="ptName" type="text" required placeholder="e.g. Ananya Verma" class="w-full rounded-xl border border-slate-300 px-4 py-2.5 text-sm text-slate-900 bg-white" />
         </div>
-        <select id="ptService" class="w-full rounded-xl border border-slate-300 px-4 py-2.5 text-sm bg-white">
-          <option value="Dental Checkup & Scaling">Dental Checkup &amp; Scaling</option>
-          <option value="Painless Root Canal (RCT)">Painless Root Canal (RCT)</option>
-          <option value="Dental Implants">Dental Implants</option>
-          <option value="Braces / Clear Aligners">Braces / Clear Aligners</option>
-        </select>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label for="ptPhone" class="block text-xs font-semibold text-slate-700 mb-1">Mobile / WhatsApp Number</label>
+            <input id="ptPhone" type="tel" required placeholder="+91 98XXX XXXXX" class="w-full rounded-xl border border-slate-300 px-4 py-2.5 text-sm text-slate-900 bg-white" />
+          </div>
+          <div>
+            <label for="ptDate" class="block text-xs font-semibold text-slate-700 mb-1">Preferred Appointment Date</label>
+            <input id="ptDate" type="date" required class="w-full rounded-xl border border-slate-300 px-4 py-2.5 text-sm text-slate-900 bg-white font-medium" />
+          </div>
+        </div>
+        <div>
+          <label for="ptService" class="block text-xs font-semibold text-slate-700 mb-1">Treatment / Consultation Type</label>
+          <select id="ptService" class="w-full rounded-xl border border-slate-300 px-4 py-2.5 text-sm bg-white text-slate-900">
+            <option value="Dental Checkup & Scaling">Dental Checkup &amp; Scaling</option>
+            <option value="Painless Root Canal (RCT)">Painless Root Canal (RCT)</option>
+            <option value="Dental Implants">Dental Implants</option>
+            <option value="Braces / Clear Aligners">Braces / Clear Aligners</option>
+          </select>
+        </div>
         <button type="submit" class="w-full py-3 rounded-xl bg-teal-700 hover:bg-teal-600 text-white font-semibold text-sm transition">Confirm Appointment Request</button>
       </form>
       <div id="apptMsg" class="hidden rounded-xl bg-teal-50 border border-teal-200 p-3 text-xs text-teal-800 text-center"></div>
     </div>
   </section>
 
+  <!-- Location, Hours & Google Maps -->
+  <section id="location" class="max-w-6xl mx-auto px-4 sm:px-6 py-12">
+    <div class="bg-slate-50 border-slate-200 text-slate-900 rounded-2xl border p-6 sm:p-8 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center shadow-sm">
+      <div class="lg:col-span-5 space-y-4">
+        <div class="text-xs font-bold uppercase tracking-wider text-teal-700">Visit Us &amp; Directions</div>
+        <h2 class="text-2xl font-bold">SmileCraft Dental &amp; Implant Studio</h2>
+        <div class="space-y-2.5 text-sm text-slate-600">
+          <div>
+            <div class="font-semibold text-current">Address</div>
+            <p>E-4/18, Arera Colony, Near Bittan Market, Bhopal, MP 462016</p>
+          </div>
+          <div>
+            <div class="font-semibold text-current">Opening Hours</div>
+            <p>Mon–Sat: 10:00 AM – 8:30 PM · Sun: 10:30 AM – 2:00 PM</p>
+          </div>
+          <div>
+            <div class="font-semibold text-current">Phone &amp; WhatsApp</div>
+            <p>+91 98260 11223</p>
+          </div>
+        </div>
+        <a href="https://www.google.com/maps/search/?api=1&query=Arera+Colony+Bhopal+Madhya+Pradesh" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-teal-700 hover:underline">
+          Open in Google Maps &rarr;
+        </a>
+      </div>
+      <div class="lg:col-span-7">
+        <iframe
+          title="SmileCraft Dental &amp; Implant Studio Map"
+          src="https://www.google.com/maps?q=Arera+Colony+Bhopal+Madhya+Pradesh&output=embed"
+          class="w-full h-64 sm:h-72 rounded-xl border border-slate-200"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- 24-Hour Free Sample Preview CTA -->
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 pb-12">
+    <div class="bg-gradient-to-r from-indigo-950 via-slate-900 to-indigo-950 text-white border-indigo-500/30 rounded-2xl border p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-xl">
+      <div class="space-y-1.5 max-w-2xl">
+        <span class="inline-block px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-[11px] font-bold uppercase tracking-wider border border-emerald-400/30">
+          Built by LocalLift Studio · v2.0
+        </span>
+        <h2 class="text-xl sm:text-2xl font-extrabold text-white">Want a Website Like This for Your Business?</h2>
+        <p class="text-xs sm:text-sm text-slate-300">Get a custom <strong class="text-white">24-hour free sample preview</strong> tailored to your brand, city, and WhatsApp—no upfront payment required.</p>
+      </div>
+      <div class="flex flex-wrap gap-3 shrink-0">
+        <a href="/#contact" class="px-5 py-3 rounded-xl bg-teal-600 hover:bg-teal-500 text-white text-sm font-bold transition shadow-lg">
+          Get 24-Hour Free Sample Preview &rarr;
+        </a>
+      </div>
+    </div>
+  </section>
+
   <footer class="border-t border-slate-200 py-6 text-center text-xs text-slate-500">
-    SmileCraft Dental &amp; Implant Studio · Demo Website Built by Krishna Tiwari Studio
+    SmileCraft Dental &amp; Implant Studio · Demo Website Built by LocalLift Studio · v2.0
   </footer>
 
   <script>
+    function initDateInputs() {
+      const now = new Date();
+      const yyyy = now.getFullYear();
+      const mm = String(now.getMonth() + 1).padStart(2, "0");
+      const dd = String(now.getDate()).padStart(2, "0");
+      const today = `${yyyy}-${mm}-${dd}`;
+      document.querySelectorAll('input[type="date"]').forEach((el) => {
+        el.min = today;
+        if (!el.value) el.value = today;
+      });
+    }
+    initDateInputs();
     const TREATMENTS = [
       { title: "Single-Sitting Root Canal", cat: "implants", desc: "Rotary endodontics with digital X-ray for fast, pain-free tooth saving." },
       { title: "Dental Implants & Crowns", cat: "implants", desc: "Permanent titanium implants and natural-looking zirconia crowns." },
@@ -154,14 +246,17 @@
       e.preventDefault();
       const name = document.getElementById("ptName").value.trim();
       const svc = document.getElementById("ptService").value;
+      const dt = document.getElementById("ptDate").value;
       const box = document.getElementById("apptMsg");
-      box.textContent = `Appointment request received for ${name} (${svc}). Our clinic desk will confirm on WhatsApp shortly.`;
+      box.textContent = `Appointment request received for ${name} (${svc} on ${dt}). Our clinic desk will confirm on WhatsApp shortly.`;
       box.classList.remove("hidden");
       e.target.reset();
+      initDateInputs();
     });
 
     renderTreatments("all");
   </script>
-<a href="/#demos" style="position:fixed;left:12px;bottom:12px;z-index:9999;background:#4f46e5;color:#fff;font:600 12px Inter,system-ui,sans-serif;padding:9px 14px;border-radius:999px;box-shadow:0 6px 20px rgba(0,0,0,.25);text-decoration:none">&larr; Back to all demos</a>
+  <!-- Repositioned bottom-right compact pill so it never overlaps left-aligned card headings -->
+  <a href="/#demos" style="position:fixed;right:14px;bottom:14px;z-index:9999;background:rgba(79,70,229,0.92);backdrop-filter:blur(8px);color:#fff;font:600 11px Inter,system-ui,sans-serif;padding:8px 13px;border-radius:999px;box-shadow:0 6px 20px rgba(0,0,0,.22);text-decoration:none">&larr; Back to all demos</a>
 </body>
 </html>

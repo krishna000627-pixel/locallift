@@ -3,19 +3,34 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="version" content="2.0" />
   <title>Precision Diagnostics &amp; Imaging | NABL Pathology &amp; Scans</title>
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <style>body { font-family: 'Inter', system-ui, sans-serif; }</style>
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    section[id] { scroll-margin-top: 80px; }
+    input[type="date"], input[type="time"] {
+      color: #0f172a !important;
+      background-color: #ffffff !important;
+      min-height: 44px;
+      color-scheme: light;
+    }
+  </style>
 </head>
-<body class="bg-slate-50 text-slate-900 antialiased">
+<body class="bg-slate-50 text-slate-900 antialiased pb-16">
   <nav class="sticky top-0 z-30 bg-white/95 backdrop-blur border-b border-slate-200">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between">
-      <a href="#top" class="font-extrabold text-lg text-blue-800">Precision Diagnostics</a>
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <a href="/#demos" class="text-xs font-semibold text-blue-700 bg-blue-50 px-2.5 py-1 rounded-lg">&larr; Demos</a>
+        <a href="#top" class="font-extrabold text-base sm:text-lg text-blue-800">Precision Diagnostics</a>
+      </div>
       <div class="hidden sm:flex items-center gap-6 text-sm font-medium text-slate-600">
         <a href="#tests" class="hover:text-blue-700">Tests &amp; Packages</a>
+        <a href="#portal" class="hover:text-blue-700">Report Portal</a>
+        <a href="#location" class="hover:text-blue-700">Location</a>
         <a href="#homevisit" class="px-4 py-2 rounded-xl bg-blue-700 hover:bg-blue-600 text-white font-semibold transition">Book Home Collection</a>
       </div>
     </div>
@@ -48,9 +63,59 @@
         <h2 class="text-2xl sm:text-3xl font-bold">Popular Tests &amp; Health Packages</h2>
         <p class="text-sm text-slate-600">Search any blood test, ultrasound, or full-body checkup.</p>
       </div>
-      <input id="testSearch" type="text" placeholder="Search test (e.g. Thyroid, CBC, Ultrasound)..." class="w-full sm:w-72 rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
+      <input id="testSearch" type="text" placeholder="Search test (Thyroid, CBC, Ultrasound)..." class="w-full sm:w-80 md:w-96 rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500" />
     </div>
     <div id="testGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+  </section>
+
+  <!-- Digital Report Portal Preview (Feature Parity) -->
+  <section id="portal" class="bg-blue-950 text-white py-14">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+      <div class="lg:col-span-5 space-y-4">
+        <span class="inline-block px-2.5 py-0.5 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-200 text-xs font-semibold">Digital Report Portal Preview</span>
+        <h2 class="text-2xl sm:text-3xl font-bold">Instant Smart Reports on Mobile &amp; WhatsApp</h2>
+        <p class="text-sm text-blue-100/80 leading-relaxed">
+          Patients can check live sample status, view color-coded biomarker trends, and download NABL-verified PDF reports without revisiting the lab.
+        </p>
+        <div class="flex gap-2 pt-1">
+          <input id="reportIdInput" type="text" value="PD-2026-8419" class="flex-1 rounded-xl bg-slate-900 border border-blue-700 px-3.5 py-2 text-xs text-white focus:outline-none" />
+          <button id="checkReportBtn" type="button" class="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-xs font-bold transition">Check Status</button>
+        </div>
+        <div id="reportStatusMsg" class="text-xs text-emerald-300 font-medium">Sample #PD-2026-8419: Verified by MD Pathologist · Ready for PDF Download</div>
+      </div>
+      <div class="lg:col-span-7">
+        <div class="bg-white text-slate-900 rounded-2xl p-5 sm:p-6 shadow-2xl space-y-4">
+          <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200 pb-3">
+            <div>
+              <div class="text-xs text-slate-500 font-semibold">PATIENT REPORT PREVIEW · #PD-2026-8419</div>
+              <div class="font-bold text-slate-900">Complete Blood Count &amp; Thyroid Panel</div>
+            </div>
+            <span class="px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 text-[11px] font-bold">Verified PDF Ready</span>
+          </div>
+          <div class="grid grid-cols-3 gap-3 text-xs">
+            <div class="bg-slate-50 rounded-xl p-3 border border-slate-200">
+              <div class="text-slate-500">Hemoglobin</div>
+              <div class="text-base font-extrabold text-slate-900">14.2 g/dL</div>
+              <div class="text-emerald-700 font-semibold">Normal</div>
+            </div>
+            <div class="bg-slate-50 rounded-xl p-3 border border-slate-200">
+              <div class="text-slate-500">TSH (Ultrasensitive)</div>
+              <div class="text-base font-extrabold text-slate-900">2.4 µIU/mL</div>
+              <div class="text-emerald-700 font-semibold">Normal</div>
+            </div>
+            <div class="bg-slate-50 rounded-xl p-3 border border-slate-200">
+              <div class="text-slate-500">HbA1c</div>
+              <div class="text-base font-extrabold text-slate-900">5.4 %</div>
+              <div class="text-emerald-700 font-semibold">Optimal</div>
+            </div>
+          </div>
+          <div class="flex items-center justify-between text-[11px] text-slate-500 pt-1">
+            <span>Signed: Dr. Meera Joshi, MD Pathology</span>
+            <span class="text-blue-700 font-bold">Delivered via WhatsApp in 4 hrs</span>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <section id="homevisit" class="max-w-2xl mx-auto px-4 sm:px-6 py-12">
@@ -58,21 +123,114 @@
       <h2 class="text-2xl font-bold text-center">Book Free Home Sample Collection</h2>
       <form id="labForm" class="space-y-3">
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <input id="lName" type="text" required placeholder="Patient Name" class="w-full rounded-xl border border-slate-300 px-4 py-2.5 text-sm" />
-          <input id="lPhone" type="tel" required placeholder="WhatsApp Number" class="w-full rounded-xl border border-slate-300 px-4 py-2.5 text-sm" />
+          <div>
+            <label for="lName" class="block text-xs font-semibold text-slate-700 mb-1">Patient Name</label>
+            <input id="lName" type="text" required placeholder="e.g. Suresh Kulkarni" class="w-full rounded-xl border border-slate-300 px-4 py-2.5 text-sm text-slate-900 bg-white" />
+          </div>
+          <div>
+            <label for="lPhone" class="block text-xs font-semibold text-slate-700 mb-1">WhatsApp Number</label>
+            <input id="lPhone" type="tel" required placeholder="+91 98XXX XXXXX" class="w-full rounded-xl border border-slate-300 px-4 py-2.5 text-sm text-slate-900 bg-white" />
+          </div>
         </div>
-        <input id="lAddr" type="text" required placeholder="Pickup Address & Preferred Time (e.g. 8:00 AM)" class="w-full rounded-xl border border-slate-300 px-4 py-2.5 text-sm" />
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label for="lDate" class="block text-xs font-semibold text-slate-700 mb-1">Preferred Collection Date</label>
+            <input id="lDate" type="date" required class="w-full rounded-xl border border-slate-300 px-4 py-2.5 text-sm text-slate-900 bg-white font-medium" />
+          </div>
+          <div>
+            <label for="lTest" class="block text-xs font-semibold text-slate-700 mb-1">Select Test / Package</label>
+            <select id="lTest" class="w-full rounded-xl border border-slate-300 px-4 py-2.5 text-sm bg-white text-slate-900">
+              <option value="Complete Full Body Checkup (65+ Tests)">Complete Full Body Checkup (65+ Tests)</option>
+              <option value="Thyroid Profile (T3, T4, TSH)">Thyroid Profile (T3, T4, TSH)</option>
+              <option value="HbA1c + Fasting Blood Sugar">HbA1c + Fasting Blood Sugar</option>
+              <option value="Fever Profile (Dengue, Malaria, Typhoid)">Fever Profile (Dengue, Malaria, Typhoid)</option>
+              <option value="Abdomen & Pelvis Ultrasound">Abdomen &amp; Pelvis Ultrasound</option>
+              <option value="Digital X-Ray & ECG">Digital X-Ray &amp; ECG</option>
+              <option value="Other / Multiple Tests">Other / Multiple Tests</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <label for="lAddr" class="block text-xs font-semibold text-slate-700 mb-1">Pickup Address &amp; Preferred Time Slot</label>
+          <input id="lAddr" type="text" required placeholder="House/Flat No., Landmark & Preferred Time (e.g. 8:00 AM)" class="w-full rounded-xl border border-slate-300 px-4 py-2.5 text-sm text-slate-900 bg-white" />
+        </div>
         <button type="submit" class="w-full py-3 rounded-xl bg-blue-700 hover:bg-blue-600 text-white font-semibold text-sm transition">Schedule Home Collection</button>
       </form>
       <div id="labMsg" class="hidden rounded-xl bg-blue-50 border border-blue-200 p-3 text-xs text-blue-900 text-center"></div>
     </div>
   </section>
 
+  <!-- Location, Hours & Google Maps -->
+  <section id="location" class="max-w-6xl mx-auto px-4 sm:px-6 py-12">
+    <div class="bg-white border-slate-200 text-slate-900 rounded-2xl border p-6 sm:p-8 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center shadow-sm">
+      <div class="lg:col-span-5 space-y-4">
+        <div class="text-xs font-bold uppercase tracking-wider text-blue-700">Visit Us &amp; Directions</div>
+        <h2 class="text-2xl font-bold">Precision Diagnostics &amp; Imaging</h2>
+        <div class="space-y-2.5 text-sm text-slate-600">
+          <div>
+            <div class="font-semibold text-current">Address</div>
+            <p>Ground Floor, Zone-II, MP Nagar, Near Sargam Cinema, Bhopal, MP 462011</p>
+          </div>
+          <div>
+            <div class="font-semibold text-current">Opening Hours</div>
+            <p>Mon–Sun: 7:00 AM – 9:00 PM (Home Sample Collection from 6:30 AM)</p>
+          </div>
+          <div>
+            <div class="font-semibold text-current">Phone &amp; WhatsApp</div>
+            <p>+91 98260 33445</p>
+          </div>
+        </div>
+        <a href="https://www.google.com/maps/search/?api=1&query=MP+Nagar+Zone+2+Bhopal" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-blue-700 hover:underline">
+          Open in Google Maps &rarr;
+        </a>
+      </div>
+      <div class="lg:col-span-7">
+        <iframe
+          title="Precision Diagnostics &amp; Imaging Map"
+          src="https://www.google.com/maps?q=MP+Nagar+Zone+2+Bhopal&output=embed"
+          class="w-full h-64 sm:h-72 rounded-xl border border-slate-200"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- 24-Hour Free Sample Preview CTA -->
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 pb-12">
+    <div class="bg-gradient-to-r from-indigo-950 via-slate-900 to-indigo-950 text-white border-indigo-500/30 rounded-2xl border p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-xl">
+      <div class="space-y-1.5 max-w-2xl">
+        <span class="inline-block px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-[11px] font-bold uppercase tracking-wider border border-emerald-400/30">
+          Built by LocalLift Studio · v2.0
+        </span>
+        <h2 class="text-xl sm:text-2xl font-extrabold text-white">Want a Website Like This for Your Business?</h2>
+        <p class="text-xs sm:text-sm text-slate-300">Get a custom <strong class="text-white">24-hour free sample preview</strong> tailored to your brand, city, and WhatsApp—no upfront payment required.</p>
+      </div>
+      <div class="flex flex-wrap gap-3 shrink-0">
+        <a href="/#contact" class="px-5 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-sm font-bold transition shadow-lg">
+          Get 24-Hour Free Sample Preview &rarr;
+        </a>
+      </div>
+    </div>
+  </section>
+
   <footer class="border-t border-slate-200 py-6 text-center text-xs text-slate-500">
-    Precision Diagnostics &amp; Imaging · Demo Website Built by Krishna Tiwari Studio
+    Precision Diagnostics &amp; Imaging · Demo Website Built by LocalLift Studio · v2.0
   </footer>
 
   <script>
+    function initDateInputs() {
+      const now = new Date();
+      const yyyy = now.getFullYear();
+      const mm = String(now.getMonth() + 1).padStart(2, "0");
+      const dd = String(now.getDate()).padStart(2, "0");
+      const today = `${yyyy}-${mm}-${dd}`;
+      document.querySelectorAll('input[type="date"]').forEach((el) => {
+        el.min = today;
+        if (!el.value) el.value = today;
+      });
+    }
+    initDateInputs();
     const TESTS = [
       { name: "Complete Full Body Checkup (65+ Tests)", price: "₹1,499", tat: "Same Day", desc: "CBC, Lipid, Liver, Kidney, Thyroid, HbA1c & Vitamin D." },
       { name: "Thyroid Profile (T3, T4, TSH)", price: "₹450", tat: "4 Hours", desc: "Accurate hormone panel with home collection." },
@@ -99,17 +257,25 @@
 
     document.getElementById("testSearch").addEventListener("input", (e) => renderTests(e.target.value));
 
+    document.getElementById("checkReportBtn").addEventListener("click", () => {
+      const id = document.getElementById("reportIdInput").value.trim() || "PD-2026-8419";
+      document.getElementById("reportStatusMsg").textContent = `Sample #${id}: Verified by MD Pathologist · Ready for PDF Download`;
+    });
+
     document.getElementById("labForm").addEventListener("submit", (e) => {
       e.preventDefault();
       const name = document.getElementById("lName").value.trim();
+      const dt = document.getElementById("lDate").value;
+      const test = document.getElementById("lTest").value;
       const box = document.getElementById("labMsg");
-      box.textContent = `Home collection scheduled for ${name}. Our phlebotomist will call you to confirm arrival.`;
+      box.textContent = `Home collection scheduled for ${name} (${test}) on ${dt}. Our phlebotomist will call you to confirm arrival.`;
       box.classList.remove("hidden");
       e.target.reset();
+      initDateInputs();
     });
 
     renderTests();
   </script>
-<a href="/#demos" style="position:fixed;left:12px;bottom:12px;z-index:9999;background:#4f46e5;color:#fff;font:600 12px Inter,system-ui,sans-serif;padding:9px 14px;border-radius:999px;box-shadow:0 6px 20px rgba(0,0,0,.25);text-decoration:none">&larr; Back to all demos</a>
+  <a href="/#demos" style="position:fixed;right:14px;bottom:14px;z-index:9999;background:rgba(79,70,229,0.92);backdrop-filter:blur(8px);color:#fff;font:600 11px Inter,system-ui,sans-serif;padding:8px 13px;border-radius:999px;box-shadow:0 6px 20px rgba(0,0,0,.22);text-decoration:none">&larr; Back to all demos</a>
 </body>
 </html>
