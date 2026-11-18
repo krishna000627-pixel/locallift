@@ -1,0 +1,57 @@
+# apphub-managed: App Hub v90. Change the options in .github/apphub.json (App Hub: project > Settings > Workflows), not in this file.
+# Needs GitHub Pages turned on with the source "GitHub Actions" (App Hub: Settings > Hosting).
+name: Pages
+
+on:
+  push:
+    branches: [main, master]
+    paths-ignore:
+      - '.github/**'
+  workflow_dispatch:
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.dep.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - id: site
+        run: |
+          C=.github/apphub.json
+          cfg() { [ -f "$C" ] || return 0; jq -r --arg k "$1" 'if has($k) then .[$k] | tostring else empty end' "$C" 2>/dev/null || true; }
+          if [ "$(cfg pages)" = "false" ]; then echo "on=false" >> "$GITHUB_OUTPUT"; echo "Pages is off in apphub.json"; exit 0; fi
+          echo "on=true" >> "$GITHUB_OUTPUT"
+          dir=$(cfg pages_dir)
+          if [ -z "$dir" ] && [ -f package.json ] && jq -e '.scripts.build' package.json >/dev/null 2>&1; then
+            if [ -f package-lock.json ]; then npm ci; else npm install; fi
+            npm run build
+            for d in dist build out public; do
+              if [ -d "$d" ]; then dir=$d; break; fi
+            done
+          fi
+          echo "dir=${dir:-.}" >> "$GITHUB_OUTPUT"
+          echo "Publishing folder: ${dir:-.}"
+
+      - if: steps.site.outputs.on == 'true'
+        uses: actions/configure-pages@v5
+
+      - if: steps.site.outputs.on == 'true'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ${{ steps.site.outputs.dir }}
+
+      - id: dep
+        if: steps.site.outputs.on == 'true'
+        uses: actions/deploy-pages@v4
