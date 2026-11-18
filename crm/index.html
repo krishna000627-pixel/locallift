@@ -141,7 +141,7 @@
         <p class="px-2 text-[10px] font-bold uppercase tracking-widest text-slate-500">Outreach &amp; Research</p>
         <button data-tab="leads" class="side-btn w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-bold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 transition">
           <span class="flex items-center gap-2.5"><span>📋</span><span>Leads CRM</span></span>
-          <span class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300">11 Cities</span>
+          <span class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300">20 Markets</span>
         </button>
         <button data-tab="requests" class="side-btn w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-300 hover:bg-white/5 border border-transparent transition">
           <span class="flex items-center gap-2.5"><span>📥</span><span>Website Asks</span></span>
@@ -186,7 +186,7 @@
         <div class="card-surface rounded-2xl p-4">
           <p class="text-[11px] font-medium text-slate-400 uppercase tracking-wider">Verified Leads</p>
           <p id="kpiTotal" class="text-2xl sm:text-3xl font-black text-white mt-1">0</p>
-          <p class="text-[11px] text-emerald-400 font-semibold mt-0.5">11 Indian Markets</p>
+          <p class="text-[11px] text-emerald-400 font-semibold mt-0.5">20 India & Global Markets</p>
         </div>
         <div class="card-surface rounded-2xl p-4">
           <p class="text-[11px] font-medium text-slate-400 uppercase tracking-wider">Hot · No Website</p>
@@ -205,10 +205,15 @@
         </div>
       </div>
       <div class="glass rounded-2xl p-4 space-y-3">
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-2.5">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-2.5">
           <input id="searchInput" type="text" placeholder="Search name, city, area, phone..." class="w-full px-3.5 py-2.5 text-xs sm:text-sm bg-slate-900/90 text-white placeholder-slate-500 border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500" />
           <select id="cityFilter" class="w-full px-3 py-2.5 text-xs sm:text-sm bg-slate-900/90 text-white border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500"></select>
           <select id="nicheFilter" class="w-full px-3 py-2.5 text-xs sm:text-sm bg-slate-900/90 text-white border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500"></select>
+          <select id="regionFilter" class="w-full px-3 py-2.5 text-xs sm:text-sm bg-slate-900/90 text-white border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500">
+            <option value="ALL">All Regions (India + Foreign)</option>
+            <option value="India">🇮🇳 India Only</option>
+            <option value="Foreign">🌍 Foreign Only</option>
+          </select>
           <select id="tierFilter" class="w-full px-3 py-2.5 text-xs sm:text-sm bg-slate-900/90 text-white border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500">
             <option value="ALL">All Tiers</option>
             <option value="Hot">Hot — No Website</option>
@@ -228,6 +233,10 @@
         <div class="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-white/10">
           <span id="resultCount" class="text-xs font-semibold text-slate-300">Showing 0 leads</span>
           <div class="flex flex-wrap items-center gap-2">
+            <label class="inline-flex items-center gap-2 cursor-pointer px-3 py-1.5 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-xs font-bold text-emerald-300">
+              <input id="hidePitchedToggle" type="checkbox" checked class="accent-emerald-500 rounded" />
+              <span>Hide Pitched</span>
+            </label>
             <button id="openImportBtn" class="px-3 py-1.5 text-xs font-semibold rounded-xl bg-white/5 hover:bg-white/10 text-slate-200 border border-white/10 transition">+ Import CSV</button>
             <button id="exportCsvBtn" class="px-3 py-1.5 text-xs font-bold rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 transition">Export CSV</button>
           </div>
@@ -301,7 +310,7 @@
           <div class="relative h-64"><canvas id="nicheChart"></canvas></div>
         </div>
         <div class="card-surface rounded-2xl p-5">
-          <h3 class="text-sm font-bold text-white mb-3">Leads &amp; Hot Prospects Across 11 Cities</h3>
+          <h3 class="text-sm font-bold text-white mb-3">Leads &amp; Hot Prospects Across 20 Markets</h3>
           <div class="relative h-64"><canvas id="cityChart"></canvas></div>
         </div>
       </div>
@@ -439,7 +448,7 @@
             <button id="copyIgBioBtn" class="px-3 py-1.5 rounded-xl text-xs font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 shrink-0">Copy Bio</button>
           </div>
           <div id="igBioBox" class="bg-slate-950/90 border border-white/10 rounded-xl p-4 text-xs text-slate-200 whitespace-pre-line leading-relaxed">LocalLift Studio | Websites for Local Businesses 🚀
-⚡ 3–5 Day Launch · 98+ Speed · 1-Tap WhatsApp Booking
+⚡ 3–5 Day Launch · 98+ Speed · Cloud Lead &amp; Booking DB
 👇 View Live Demos &amp; Plans (From ₹4,999)
 https://locallift-psi.vercel.app/#demos</div>
           <div>
@@ -522,7 +531,7 @@ https://locallift-psi.vercel.app/#demos</div>
           <h2 class="text-base sm:text-lg font-extrabold text-white">Incoming Website Requests (Asks)</h2>
           <p class="text-xs sm:text-sm text-slate-300">Every business that submits the "Get 24-Hour Free Demo Preview" form on the main site appears here for the whole team.</p>
         </div>
-        <button id="refreshRequestsBtn" type="button" class="px-3.5 py-2 text-xs font-bold rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 transition">↻ Refresh Asks</button>
+        <div class="flex gap-2"><button id="exportAsksBtn" type="button" class="px-3.5 py-2 text-xs font-semibold rounded-xl bg-white/10 hover:bg-white/15 text-white border border-white/10 transition">Export Asks CSV</button><button id="refreshRequestsBtn" type="button" class="px-3.5 py-2 text-xs font-bold rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 transition">↻ Refresh Asks</button></div>
       </div>
       <div id="requestsList" class="grid grid-cols-1 md:grid-cols-2 gap-3.5"></div>
     </section>
@@ -611,7 +620,9 @@ https://locallift-psi.vercel.app/#demos</div>
       "Dental Clinic": "https://locallift-psi.vercel.app/demos/dental",
       "Hotel & Banquet": "https://locallift-psi.vercel.app/demos/hotel",
       "Restaurant & Cafe": "https://locallift-psi.vercel.app/demos/restaurant",
-      "Diagnostic Lab": "https://locallift-psi.vercel.app/demos/lab"
+      "Diagnostic Lab": "https://locallift-psi.vercel.app/demos/lab",
+      "Salon & Spa": "https://locallift-psi.vercel.app/demos/salon",
+      "Gym & Fitness": "https://locallift-psi.vercel.app/demos/fitness"
     };
 
     // 210+ 100% Grounded Real Businesses across 11 Indian Cities
@@ -829,7 +840,45 @@ https://locallift-psi.vercel.app/#demos</div>
       { id: "ch13", name: "Kamaa Café", niche: "Restaurant & Cafe", city: "Chandigarh", phone: "+91 98557 77080", rating: "4.6", reviews: 1430, address: "Sector 7-C, Chandigarh", website: "https://instagram.com/kamaacafe" },
       { id: "ch14", name: "Cafe Olio", niche: "Restaurant & Cafe", city: "Chandigarh", phone: "+91 98725 57225", rating: "4.1", reviews: 739, address: "Sector 35B, Chandigarh", website: "https://www.instagram.com/cafe.olio/" },
       { id: "ch15", name: "Atulaya Healthcare Sec 41", niche: "Diagnostic Lab", city: "Chandigarh", phone: "+91 97790 50661", rating: "4.9", reviews: 61, address: "Sector 41D, Chandigarh", website: "https://sites.google.com/view/atulaya/home" },
-      { id: "ch16", name: "Sri Guru Har Rai Sahib Diagnostic", niche: "Diagnostic Lab", city: "Chandigarh", phone: "+91 97800 32691", rating: "4.9", reviews: 5230, address: "Sector 22D, Chandigarh", website: "http://sghrsdc22.com/" }
+      { id: "ch16", name: "Sri Guru Har Rai Sahib Diagnostic", niche: "Diagnostic Lab", city: "Chandigarh", phone: "+91 97800 32691", rating: "4.9", reviews: 5230, address: "Sector 22D, Chandigarh", website: "http://sghrsdc22.com/" },
+      // MUMBAI, DELHI, BENGALURU, HYDERABAD, KOLKATA, CHENNAI (TOP METRO GRABBERS)
+      { id: "mb1", name: "V Care Dental Clinic", niche: "Dental Clinic", city: "Mumbai", phone: "+91 98208 17899", rating: "4.9", reviews: 283, address: "Mulund West, Mumbai", website: "https://vcaredentalclinic.in/" },
+      { id: "mb2", name: "Kadali Dental Clinic", niche: "Dental Clinic", city: "Mumbai", phone: "+91 98192 01882", rating: "4.9", reviews: 207, address: "Andheri West, Mumbai", website: "https://kadalidental.com/" },
+      { id: "mb3", name: "Swiss Dental Clinic", niche: "Dental Clinic", city: "Mumbai", phone: "+91 80971 68966", rating: "5.0", reviews: 119, address: "Bandra West, Mumbai", website: "https://swissdentalaesthetics.com/" },
+      { id: "mb4", name: "Lotus Dental Care Clinic", niche: "Dental Clinic", city: "Mumbai", phone: "+91 99871 58061", rating: "4.9", reviews: 715, address: "Sector 17, Vashi, Navi Mumbai", website: "https://lotusdentalcareclinic.com/" },
+      { id: "mb5", name: "Citizen Hotel", niche: "Hotel & Banquet", city: "Mumbai", phone: "+91 97694 73110", rating: "4.1", reviews: 2759, address: "Juhu Beach, Mumbai", website: "https://citizenhotelmumbai.com/" },
+      { id: "mb6", name: "Hotel Parle International", niche: "Hotel & Banquet", city: "Mumbai", phone: "+91 85914 93710", rating: "4.2", reviews: 7465, address: "Vile Parle East, Mumbai", website: "https://hotelparleinternational.com/" },
+      { id: "mb7", name: "Goldfinch Hotel Mumbai", niche: "Hotel & Banquet", city: "Mumbai", phone: "+91 22 6688 0909", rating: "4.2", reviews: 9619, address: "MIDC, Andheri East, Mumbai", website: "https://www.goldfinchhotels.com/" },
+      { id: "dl1", name: "Kalyani Dental Clinic", niche: "Dental Clinic", city: "Delhi", phone: "+91 98108 80180", rating: "4.9", reviews: 679, address: "New Ashok Nagar, Delhi", website: "http://kalyanidentalclinic.com/" },
+      { id: "dl2", name: "Clay Inn Hotels", niche: "Hotel & Banquet", city: "Delhi", phone: "+91 85888 70249", rating: "4.1", reviews: 637, address: "Paschim Vihar, Delhi", website: "https://delhi.clayinnhotel.com/" },
+      { id: "dl3", name: "Goldfinch Hotel Delhi NCR", niche: "Hotel & Banquet", city: "Delhi", phone: "+91 129 424 9999", rating: "4.0", reviews: 3633, address: "Sector 39, Faridabad, Delhi NCR", website: "https://www.goldfinchhotels.com/" },
+      { id: "bl1", name: "Dental Den, Hennur", niche: "Dental Clinic", city: "Bengaluru", phone: "+91 99000 87667", rating: "4.7", reviews: 208, address: "Hennur Main Road, Bengaluru", website: "https://www.dentalden.in/" },
+      { id: "bl2", name: "Centric Dental Care", niche: "Dental Clinic", city: "Bengaluru", phone: "+91 95919 26194", rating: "5.0", reviews: 114, address: "J. P. Nagar 8th Phase, Bengaluru", website: "" },
+      { id: "bl3", name: "Goldfinch Hotel Bengaluru", niche: "Hotel & Banquet", city: "Bengaluru", phone: "+91 80 4129 1300", rating: "4.1", reviews: 12910, address: "Race Course Road, Bengaluru", website: "https://www.goldfinchhotels.com/" },
+      { id: "hy1", name: "Aquats Path Labs", niche: "Diagnostic Lab", city: "Hyderabad", phone: "+91 90639 06319", rating: "4.8", reviews: 180, address: "Hyderabad, Telangana", website: "https://aquatspathlabs.com/" },
+      { id: "hy2", name: "Cafe Twenty One", niche: "Restaurant & Cafe", city: "Hyderabad", phone: "+91 96402 23321", rating: "4.5", reviews: 803, address: "Narsingi, Kokapet, Hyderabad", website: "https://cafetwentyone.in/" },
+      { id: "hy3", name: "Theory Patisserie & Cafe", niche: "Restaurant & Cafe", city: "Hyderabad", phone: "+91 83676 96769", rating: "4.2", reviews: 2216, address: "Road No. 13, Jubilee Hills, Hyderabad", website: "https://theorycafe.in/" },
+      { id: "hy4", name: "Mandiram Restaurant", niche: "Restaurant & Cafe", city: "Hyderabad", phone: "+91 95159 82442", rating: "3.9", reviews: 265, address: "RTC X Road, Hyderabad", website: "https://mandiramrestaurant.in/" },
+      { id: "hy5", name: "Cafe Niloufer Hitech City", niche: "Restaurant & Cafe", city: "Hyderabad", phone: "+91 63038 63695", rating: "4.3", reviews: 9245, address: "Raidurgam, Hitech City, Hyderabad", website: "https://cafeniloufer.com/" },
+      { id: "kl1", name: "New Mediclue Diagnostics", niche: "Diagnostic Lab", city: "Kolkata", phone: "+91 93311 55776", rating: "4.7", reviews: 328, address: "Chowringhee Road, Bhowanipore, Kolkata", website: "https://newmediclue.com/" },
+      { id: "kl2", name: "CPL Diagnostics (Calcutta Pathlabs)", niche: "Diagnostic Lab", city: "Kolkata", phone: "+91 92307 02815", rating: "4.8", reviews: 441, address: "Canal South Road, Kolkata", website: "https://www.cpl.net.in/" },
+      { id: "kl3", name: "SERUM Analysis Centre", niche: "Diagnostic Lab", city: "Kolkata", phone: "+91 98302 74990", rating: "4.8", reviews: 410, address: "Bidhan Sarani, Kolkata", website: "https://www.serumanalysiscentre.com/" },
+      { id: "kl4", name: "Sei Vui Restaurant", niche: "Restaurant & Cafe", city: "Kolkata", phone: "+91 98747 18756", rating: "4.5", reviews: 3029, address: "Tiretti, Kolkata", website: "" },
+      { id: "kl5", name: "4 Season Kitchen", niche: "Restaurant & Cafe", city: "Kolkata", phone: "+91 62891 55055", rating: "4.8", reviews: 53, address: "Bentinck Street, Esplanade, Kolkata", website: "" },
+      { id: "kl6", name: "Sufi Palace", niche: "Restaurant & Cafe", city: "Kolkata", phone: "+91 84500 77775", rating: "4.2", reviews: 5592, address: "College Street, Kolkata", website: "" },
+      { id: "cn1", name: "Anderson Diagnostics & Labs", niche: "Diagnostic Lab", city: "Chennai", phone: "+91 90038 94030", rating: "4.6", reviews: 320, address: "OMR, Chennai", website: "https://www.andersondiagnostics.com/" },
+      // FOREIGN CLIENTS (DUBAI, TORONTO, SYDNEY)
+      { id: "fg1", region: "Foreign", name: "Elite Smile Dental Clinic", niche: "Dental Clinic", city: "Dubai (UAE)", phone: "+971 56 664 3427", rating: "5.0", reviews: 201, address: "SIT Tower, Dubai Silicon Oasis, Dubai", website: "https://elitesmiledentalclinic.ae/" },
+      { id: "fg2", region: "Foreign", name: "Floss And Gloss Dental Clinic", niche: "Dental Clinic", city: "Dubai (UAE)", phone: "+971 4 266 5219", rating: "4.9", reviews: 1013, address: "Al Diyafa Shopping Center, Satwa, Dubai", website: "" },
+      { id: "fg3", region: "Foreign", name: "Dr Suzan Assarian Dental Clinic", niche: "Dental Clinic", city: "Dubai (UAE)", phone: "+971 56 922 8802", rating: "5.0", reviews: 925, address: "Al Saqr Business Tower, Trade Center, Dubai", website: "" },
+      { id: "fg4", region: "Foreign", name: "Noor Al Inaya Dental Clinic", niche: "Dental Clinic", city: "Dubai (UAE)", phone: "+971 58 227 2290", rating: "5.0", reviews: 831, address: "Deira, Near Baniyas Metro, Dubai", website: "" },
+      { id: "fg5", region: "Foreign", name: "Queens Elite Medical", niche: "Dental Clinic", city: "Dubai (UAE)", phone: "+971 4 399 0402", rating: "4.9", reviews: 590, address: "Dubai Marina, Dubai", website: "https://queenselitemedical.com/" },
+      { id: "fg6", region: "Foreign", name: "Pearl Dental Implants Centre", niche: "Dental Clinic", city: "Dubai (UAE)", phone: "+971 54 475 2767", rating: "5.0", reviews: 699, address: "Citadel Tower, Business Bay, Dubai", website: "" },
+      { id: "fg7", region: "Foreign", name: "Fox on John", niche: "Restaurant & Cafe", city: "Toronto (Canada)", phone: "+1 647-748-0369", rating: "4.7", reviews: 14727, address: "106 John Street, Toronto, ON", website: "https://www.foxonjohn.ca/" },
+      { id: "fg8", region: "Foreign", name: "Elephant & Castle Toronto", niche: "Restaurant & Cafe", city: "Toronto (Canada)", phone: "+1 416-598-4455", rating: "4.2", reviews: 4436, address: "212 King Street West, Toronto, ON", website: "https://www.elephantcastle.com/" },
+      { id: "fg9", region: "Foreign", name: "Trios Bistro", niche: "Restaurant & Cafe", city: "Toronto (Canada)", phone: "+1 416-204-9018", rating: "4.2", reviews: 135, address: "525 Bay Street, Toronto, ON", website: "" },
+      { id: "fg10", region: "Foreign", name: "Cafe Sydney", niche: "Restaurant & Cafe", city: "Sydney (Australia)", phone: "+61 2 9251 8683", rating: "4.6", reviews: 3200, address: "Customs House, Sydney NSW 2000", website: "https://cafesydney.com/" },
+      { id: "fg11", region: "Foreign", name: "The Grounds of Alexandria", niche: "Restaurant & Cafe", city: "Sydney (Australia)", phone: "+61 2 9699 2225", rating: "4.3", reviews: 7145, address: "7a/2 Huntley St, Alexandria NSW, Sydney", website: "https://thegrounds.com.au/" }
     ];
 
     const REAL_EXAMPLES = [
@@ -876,14 +925,14 @@ https://locallift-psi.vercel.app/#demos</div>
     ];
 
     const PITCH_CARDS = [
-      { category: "Core · No Website (Hot)", lines: ["Hi {business} ({city})! Saw your great Google reviews, but you don't have a website yet—so local searches slip to directories.", "I build fast {niche} sites with 1-tap WhatsApp booking in 3–5 days (from ₹4,999). Check demos & info: " + PORTFOLIO_URL, "Want a FREE custom sample preview for {business} within 24 hours?"] },
-      { category: "Core · Instagram / Linktree / Grexa (Warm)", lines: ["Hi {business} ({city})! Your current link is good, but owning a fast custom domain + Google SEO brings direct WhatsApp bookings without middlemen.", "See our live {niche} demo & plans (₹4,999–₹14,999): " + PORTFOLIO_URL, "Reply DEMO if you'd like a free 24-hour preview for {business}!"] },
-      { category: "Other · Salons, Spas & Bridal Studios", lines: ["Hi! Saw your salon's great Google reviews—clients search 'best salon near me' before booking bridal or grooming packages.", "I build fast salon websites with service menus & 1-tap WhatsApp slot booking in 3–5 days (from ₹4,999): " + PORTFOLIO_URL, "Shall I send a FREE 24-hour sample preview for your salon?"] },
-      { category: "Other · Gyms, Yoga & Fitness Studios", lines: ["Hi! Noticed your fitness studio on Google Maps—a fast site with transformation galleries & trial-pass WhatsApp booking converts more walk-ins.", "Launch in 3–5 days starting at ₹4,999 with Local Google SEO. Full info & demos: " + PORTFOLIO_URL, "Want a FREE custom preview for your gym tomorrow?"] },
-      { category: "Other · Coaching Institutes & Tuitions", lines: ["Hi! Parents & students searching coaching near them trust institutes with a clean website showing results, faculty & batch timings.", "I build fast mobile-first institute sites with 1-tap WhatsApp counseling inquiries (from ₹4,999): " + PORTFOLIO_URL, "Reply DEMO and I'll send a FREE sample preview in 24 hours!"] },
-      { category: "Other · Real Estate, Interior & Boutiques", lines: ["Hi! Sending buyers an Instagram link loses trust compared to your own fast portfolio website with project galleries & WhatsApp inquiry.", "Custom sites + Local Google SEO in 3–5 days (₹4,999–₹14,999). Check live demos & info: " + PORTFOLIO_URL, "Want me to build a FREE 24-hour preview for your business?"] },
+      { category: "Core · No Website (Hot)", lines: ["Hi {business} ({city})! Saw your great Google reviews, but you don't have a website yet—so local searches slip to directories.", "I build fast {niche} sites with a built-in cloud booking DB in 3–5 days (from ₹4,999). Check demos & info: " + PORTFOLIO_URL, "Want a FREE custom sample preview for {business} within 24 hours?"] },
+      { category: "Core · Instagram / Linktree / Grexa (Warm)", lines: ["Hi {business} ({city})! Your current link is good, but owning a fast custom domain + Google SEO brings direct online bookings without middlemen.", "See our live {niche} demo & plans (₹4,999–₹14,999): " + PORTFOLIO_URL, "Reply DEMO if you'd like a free 24-hour preview for {business}!"] },
+      { category: "Other · Salons, Spas & Bridal Studios", lines: ["Hi! Saw your salon's great Google reviews—clients search 'best salon near me' before booking bridal or grooming packages.", "I build fast salon websites with service menus & online slot booking in 3–5 days (from ₹4,999): " + PORTFOLIO_URL, "Shall I send a FREE 24-hour sample preview for your salon?"] },
+      { category: "Other · Gyms, Yoga & Fitness Studios", lines: ["Hi! Noticed your fitness studio on Google Maps—a fast site with transformation galleries & online trial-pass booking converts more walk-ins.", "Launch in 3–5 days starting at ₹4,999 with Local Google SEO. Full info & demos: " + PORTFOLIO_URL, "Want a FREE custom preview for your gym tomorrow?"] },
+      { category: "Other · Coaching Institutes & Tuitions", lines: ["Hi! Parents & students searching coaching near them trust institutes with a clean website showing results, faculty & batch timings.", "I build fast mobile-first institute sites with online counseling inquiries (from ₹4,999): " + PORTFOLIO_URL, "Reply DEMO and I'll send a FREE sample preview in 24 hours!"] },
+      { category: "Other · Real Estate, Interior & Boutiques", lines: ["Hi! Sending buyers an Instagram link loses trust compared to your own fast portfolio website with project galleries & direct cloud lead capture.", "Custom sites + Local Google SEO in 3–5 days (₹4,999–₹14,999). Check live demos & info: " + PORTFOLIO_URL, "Want me to build a FREE 24-hour preview for your business?"] },
       { category: "Follow-Up · Day 3 Gentle Nudge", lines: ["Hi! Just bubbling this up—even 3–4 extra Google bookings a month cover the entire website cost.", "Check all plans (₹4,999–₹14,999) & live demos here: " + PORTFOLIO_URL, "Should I send your free 24-hour preview link?"] },
-      { category: "Objection · 'Already on Justdial / Instagram'", lines: ["Justdial sends the same lead to 5 competitors, and Instagram doesn't rank on Google Search when locals search near them.", "A ₹4,999 website gives you exclusive 1-tap WhatsApp leads directly from Google. See demos: " + PORTFOLIO_URL, "Let me send a free 24-hour preview so you can compare side-by-side!"] }
+      { category: "Objection · 'Already on Justdial / Instagram'", lines: ["Justdial sends the same lead to 5 competitors, and Instagram doesn't rank on Google Search when locals search near them.", "A ₹4,999 website gives you exclusive direct leads directly from Google. See demos: " + PORTFOLIO_URL, "Let me send a free 24-hour preview so you can compare side-by-side!"] }
     ];
 
     const PERSPECTIVE_AUDIT = [
@@ -969,13 +1018,16 @@ https://locallift-psi.vercel.app/#demos</div>
 
     function build3LinePitch(lead) {
       const demo = DEMO_URLS[lead.niche] || PORTFOLIO_URL;
+      const isForeign = lead.region === "Foreign";
+      const startPrice = isForeign ? "$149" : "₹4,999";
+      const rangePrice = isForeign ? "$149–$399" : "₹4,999–₹14,999";
       if (lead.tier === "Hot") {
-        return `Hi ${lead.name} (${lead.city})! Saw your great Google reviews, but you don't have a website yet—so local searches slip to directories.\nI run LocalLift Studio and build fast ${lead.niche} websites with 1-tap WhatsApp booking in 3–5 days (from ₹4,999). Live demo: ${demo}\nWant a FREE custom sample preview for ${lead.name} within 24 hours?`;
+        return `Hi ${lead.name} (${lead.city})! Saw your great Google reviews, but you don't have a website yet—so local searches slip to directories.\nI run LocalLift Studio and build fast ${lead.niche} websites with a built-in cloud booking DB in 3–5 days (from ${startPrice}). Live demo: ${demo}\nWant a FREE custom sample preview for ${lead.name} within 24 hours?`;
       }
       if (lead.tier === "Warm") {
-        return `Hi ${lead.name} (${lead.city})! Your current link is good, but owning a fast custom domain + Google SEO brings direct WhatsApp bookings without middlemen.\nSee our LocalLift Studio ${lead.niche} demo & plans (₹4,999–₹14,999): ${demo}\nReply DEMO if you'd like a free 24-hour preview for ${lead.name}!`;
+        return `Hi ${lead.name} (${lead.city})! Your current link is good, but owning a fast custom domain + Google SEO brings direct bookings without middlemen.\nSee our LocalLift Studio ${lead.niche} demo & plans (${rangePrice}): ${demo}\nReply DEMO if you'd like a free 24-hour preview for ${lead.name}!`;
       }
-      return `Hi ${lead.name} (${lead.city})! Checked your site—fixing mobile speed, SSL & Local Maps SEO can bring 15+ extra monthly inquiries.\nSee our LocalLift Studio ${lead.niche} benchmark demo & SEO plans: ${demo}\nShall I send a free 24-hour upgrade preview for ${lead.name}?`;
+      return `Hi ${lead.name} (${lead.city})! Checked your site—fixing mobile speed, cloud lead capture & Local Maps SEO can bring 15+ extra monthly inquiries.\nSee our LocalLift Studio ${lead.niche} benchmark demo & SEO plans (${rangePrice}): ${demo}\nShall I send a free 24-hour upgrade preview for ${lead.name}?`;
     }
 
     function buildWaLink(lead) {
@@ -1017,10 +1069,15 @@ https://locallift-psi.vercel.app/#demos</div>
       const q = document.getElementById("searchInput").value.trim().toLowerCase();
       const city = document.getElementById("cityFilter").value;
       const niche = document.getElementById("nicheFilter").value;
+      const region = document.getElementById("regionFilter")?.value || "ALL";
       const tier = document.getElementById("tierFilter").value;
       const status = document.getElementById("statusFilter").value;
+      const hidePitched = document.getElementById("hidePitchedToggle")?.checked;
       return allLeads.filter(l => {
         const st = statuses[l.id] || "New";
+        if (hidePitched && status === "ALL" && st !== "New") return false;
+        const lReg = l.region === "Foreign" ? "Foreign" : "India";
+        if (region !== "ALL" && lReg !== region) return false;
         if (city !== "ALL" && l.city !== city) return false;
         if (niche !== "ALL" && l.niche !== niche) return false;
         if (tier !== "ALL" && l.tier !== tier) return false;
@@ -1277,7 +1334,7 @@ https://locallift-psi.vercel.app/#demos</div>
     document.getElementById("quickMenuBtn")?.addEventListener("click", openSidebar);
     document.getElementById("closeSidebarBtn").addEventListener("click", closeSidebar);
     sidebarBackdrop.addEventListener("click", closeSidebar);
-    document.addEventListener("keydown", e => { if (e.key === "Escape") closeSidebar(); });
+    document.addEventListener("keydown", e => { if (e.key === "Escape") closeSidebar(); if (e.key === "/" && document.activeElement.tagName !== "INPUT" && document.activeElement.tagName !== "TEXTAREA") { e.preventDefault(); document.getElementById("searchInput")?.focus(); } });
 
     function switchTab(target) {
       document.getElementById("activePageLabel").textContent = PAGE_LABELS[target] || "Studio";
@@ -1337,7 +1394,7 @@ https://locallift-psi.vercel.app/#demos</div>
 
     document.getElementById("prevPageBtn").addEventListener("click", () => { if (currentPage > 1) { currentPage--; renderLeads(); } });
     document.getElementById("nextPageBtn").addEventListener("click", () => { currentPage++; renderLeads(); });
-    ["searchInput", "cityFilter", "nicheFilter", "tierFilter", "statusFilter"].forEach(id => {
+    ["searchInput", "cityFilter", "nicheFilter", "regionFilter", "tierFilter", "statusFilter", "hidePitchedToggle"].forEach(id => {
       document.getElementById(id).addEventListener("input", () => { currentPage = 1; renderLeads(); });
       document.getElementById(id).addEventListener("change", () => { currentPage = 1; renderLeads(); });
     });
@@ -1596,12 +1653,12 @@ https://locallift-psi.vercel.app/#demos</div>
 
     // === VERCEL SHARED DB & TEAM PASSCODE AUTH ===
     let crmToken = "";
-    try { crmToken = sessionStorage.getItem("ll_crm_token") || ""; } catch (e) {}
+    try { crmToken = localStorage.getItem("ll_crm_token") || ""; } catch (e) {}
     let incomingRequests = [];
 
     function authHeaders() {
       const h = { "Content-Type": "application/json" };
-      if (crmToken) h["Authorization"] = "Bearer " + crmToken;
+      if (crmToken && crmToken !== "cookie") h["Authorization"] = "Bearer " + crmToken;
       return h;
     }
 
@@ -1651,7 +1708,7 @@ https://locallift-psi.vercel.app/#demos</div>
               <div class="flex items-start justify-between gap-2">
                 <div>
                   <h3 class="text-sm font-bold text-white">${r.business}</h3>
-                  <p class="text-xs text-slate-400">${r.city || "India"} · <span class="text-emerald-300 font-semibold">${r.plan || "Website"}</span></p>
+                  <p class="text-xs text-slate-400">${r.city || "India"}${r.niche ? " · " + r.niche : ""} · <span class="text-emerald-300 font-semibold">${r.plan || "Website"}</span></p>
                 </div>
                 <select data-req-id="${r.id}" class="req-status-sel px-2.5 py-1 rounded-lg text-[11px] font-bold bg-slate-900 text-white border border-white/15">
                   <option value="New" ${r.status === "New" ? "selected" : ""}>New</option>
@@ -1664,12 +1721,28 @@ https://locallift-psi.vercel.app/#demos</div>
               ${dt ? `<p class="text-[11px] text-slate-500">Submitted: ${dt}</p>` : ""}
             </div>
             <div class="flex items-center justify-end gap-2 pt-2 border-t border-white/10">
+              <button type="button" data-del-req="${r.id}" class="del-req-btn px-2.5 py-1.5 rounded-xl text-xs font-semibold bg-rose-500/10 hover:bg-rose-500/20 text-rose-300 border border-rose-500/25 transition">Delete</button>
               <a href="https://wa.me/${waNum}?text=${waText}" target="_blank" rel="noopener" class="px-3.5 py-1.5 rounded-xl text-xs font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 transition">Reply on WhatsApp ↗</a>
             </div>
           </div>
         `;
       }).join("");
 
+      box.querySelectorAll(".del-req-btn").forEach(btn => {
+        btn.addEventListener("click", async () => {
+          const id = btn.dataset.delReq;
+          incomingRequests = incomingRequests.filter(x => x.id !== id);
+          renderIncomingRequests();
+          try {
+            await fetch("/api/crm", {
+              method: "POST",
+              headers: authHeaders(),
+              body: JSON.stringify({ action: "delete_inquiry", id })
+            });
+            showToast("Request deleted");
+          } catch (e) {}
+        });
+      });
       box.querySelectorAll(".req-status-sel").forEach(sel => {
         sel.addEventListener("change", async () => {
           const id = sel.dataset.reqId;
@@ -1759,10 +1832,21 @@ https://locallift-psi.vercel.app/#demos</div>
     saveLog = function() { _origSaveLog(); pushCloudState(); };
 
     document.getElementById("syncNowBtn")?.addEventListener("click", () => syncFromCloud(false));
+        document.getElementById("exportAsksBtn")?.addEventListener("click", () => {
+      const esc = v => `"${String(v || "").replace(/"/g, '""')}"`;
+      const header = "Business,City,Niche,Plan,Phone,Status,CreatedAt";
+      const rows = incomingRequests.map(r => [esc(r.business), esc(r.city), esc(r.niche), esc(r.plan), esc(r.phone), esc(r.status), esc(r.createdAt)].join(","));
+      const blob = new Blob([header + "\n" + rows.join("\n")], { type: "text/csv;charset=utf-8;" });
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "locallift_website_asks.csv";
+      a.click();
+      showToast("Exported Website Asks CSV");
+    });
     document.getElementById("refreshRequestsBtn")?.addEventListener("click", () => syncFromCloud(false));
     document.getElementById("lockCrmBtn")?.addEventListener("click", async () => {
       crmToken = "";
-      try { sessionStorage.removeItem("ll_crm_token"); } catch (e) {}
+      try { localStorage.removeItem("ll_crm_token"); } catch (e) {}
       try { await fetch("/api/auth", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ action: "logout" }) }); } catch (e) {}
       document.getElementById("crmPassInput").value = "";
       document.getElementById("crmLoginOverlay").classList.remove("hidden");
@@ -1788,7 +1872,7 @@ https://locallift-psi.vercel.app/#demos</div>
           errBox.classList.remove("hidden");
         } else {
           crmToken = data.token || "ok";
-          try { sessionStorage.setItem("ll_crm_token", crmToken); } catch (ex) {}
+          try { localStorage.setItem("ll_crm_token", crmToken); } catch (ex) {}
           document.getElementById("crmLoginOverlay").classList.add("hidden");
           await syncFromCloud(true);
         }
@@ -1800,15 +1884,18 @@ https://locallift-psi.vercel.app/#demos</div>
       btn.textContent = "Unlock Team CRM →";
     });
 
-    // Auto-unlock if valid session exists
+    // Auto-unlock if valid 7-day localStorage token OR HttpOnly cookie exists
     (async function checkSession() {
-      if (!crmToken) return;
       try {
-        const res = await fetch("/api/auth", { headers: authHeaders() });
+        const res = await fetch("/api/auth", { headers: authHeaders(), credentials: "same-origin" });
         const data = await res.json();
         if (data.authenticated) {
+          if (!crmToken) crmToken = "cookie";
           document.getElementById("crmLoginOverlay").classList.add("hidden");
           await syncFromCloud(true);
+        } else if (crmToken) {
+          crmToken = "";
+          try { localStorage.removeItem("ll_crm_token"); } catch (e) {}
         }
       } catch (e) {}
     })();

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Free 4-POV Local Website &amp; Google Maps SEO Audit by LocalLift Studio." />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230b1220'/%3E%3Cpath d='M16 18 L24 14 L24 40 L35 40 L32 48 L16 48 Z' fill='%23f8fafc'/%3E%3Cpath d='M31 24 L39 16 L48 25 L43 29 L39 25 L39 40 L50 40 L47 48 L31 48 Z' fill='%2310b981'/%3E%3C/svg%3E" />
+  <title>Free 4-POV Website &amp; SEO Audit | LocalLift Studio</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>body { font-family: 'Inter', system-ui, sans-serif; }</style>
+</head>
+<body class="bg-slate-950 text-slate-100 antialiased min-h-screen flex flex-col">
+  <nav class="sticky top-0 z-30 bg-slate-950/90 backdrop-blur border-b border-slate-800">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between">
+      <a href="/" class="font-bold text-white text-sm sm:text-base">&larr; LocalLift Studio</a>
+      <a href="/#contact" class="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold transition">Get Free 24h Preview</a>
+    </div>
+  </nav>
+  <main class="flex-1 max-w-4xl w-full mx-auto px-4 sm:px-6 py-12 space-y-8">
+    <div class="text-center space-y-2">
+      <span class="inline-block px-3 py-1 rounded-full bg-emerald-500/15 text-emerald-300 text-xs font-bold border border-emerald-500/30">4-POV Diagnostic Tool</span>
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-white">Check How Much Google Traffic You're Losing</h1>
+      <p class="text-sm text-slate-400">Select your current online setup to see a 4-perspective audit (Owner, Customer, Google Bot, Competitor).</p>
+    </div>
+    <div class="bg-slate-900 rounded-2xl border border-slate-800 p-6 space-y-4">
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+        <button type="button" data-mode="none" class="aud-btn px-4 py-3 rounded-xl text-xs font-bold bg-indigo-600 text-white">No Website Yet</button>
+        <button type="button" data-mode="social" class="aud-btn px-4 py-3 rounded-xl text-xs font-semibold bg-slate-800 text-slate-300">Instagram / Justdial Only</button>
+        <button type="button" data-mode="slow" class="aud-btn px-4 py-3 rounded-xl text-xs font-semibold bg-slate-800 text-slate-300">Old / Slow Website</button>
+      </div>
+      <div id="auditOut" class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2"></div>
+    </div>
+    <div class="text-center">
+      <a href="/#contact" class="inline-flex px-6 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-sm transition">Fix All 4 POVs With a Free 24-Hour Preview &rarr;</a>
+    </div>
+  </main>
+  <script>
+    const AUDITS = {
+      none: [
+        { pov: "Owner POV", score: "High Loss", text: "Local buyers searching Google Maps see 'No Website' and call competitors with a clickable site." },
+        { pov: "Customer POV", score: "No Trust", text: "Patients and diners want to see prices, menus, and photos before calling." },
+        { pov: "Google SEO POV", score: "0/100", text: "Without a domain and LocalBusiness Schema, you miss top-3 Map Pack rankings." },
+        { pov: "Cloud DB POV", score: "Manual", text: "Missed calls equal lost revenue; a Cloud Lead DB captures bookings 24/7." }
+      ],
+      social: [
+        { pov: "Owner POV", score: "Commission Loss", text: "Directories send your leads to 5 competitors; OTAs charge 15–25% per booking." },
+        { pov: "Customer POV", score: "Friction", text: "Instagram forces login walls and hides menus/services in story highlights." },
+        { pov: "Google SEO POV", score: "Weak", text: "Social profiles rarely rank for high-intent 'near me' service searches." },
+        { pov: "Cloud DB POV", score: "Scattered", text: "DMs get buried instead of landing in a structured team booking queue." }
+      ],
+      slow: [
+        { pov: "Owner POV", score: "40% Bounce", text: "Slow WordPress/Wix templates lose nearly half of mobile visitors before loading." },
+        { pov: "Customer POV", score: "Clunky UX", text: "Broken mobile date pickers and cluttered menus frustrate ready-to-book buyers." },
+        { pov: "Google SEO POV", score: "Needs Tuning", text: "Sub-60 PageSpeed scores hurt Google Search visibility on 4G mobile networks." },
+        { pov: "Cloud DB POV", score: "Disconnected", text: "Static contact emails go unread instead of syncing to a live team CRM." }
+      ]
+    };
+    function renderAuditMode(m = "none") {
+      document.getElementById("auditOut").innerHTML = AUDITS[m].map(a => `<div class="bg-slate-950 rounded-xl border border-slate-800 p-4 space-y-1.5"><div class="flex justify-between text-xs"><span class="font-bold text-indigo-400">${a.pov}</span><span class="font-bold text-rose-400">${a.score}</span></div><p class="text-xs text-slate-300 leading-relaxed">${a.text}</p></div>`).join("");
+    }
+    document.querySelectorAll(".aud-btn").forEach(b => b.addEventListener("click", () => {
+      document.querySelectorAll(".aud-btn").forEach(x => x.className = "aud-btn px-4 py-3 rounded-xl text-xs font-semibold bg-slate-800 text-slate-300");
+      b.className = "aud-btn px-4 py-3 rounded-xl text-xs font-bold bg-indigo-600 text-white";
+      renderAuditMode(b.dataset.mode);
+    }));
+    renderAuditMode("none");
+  </script>
+</body>
+</html>

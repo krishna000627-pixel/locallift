@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="GlowCraft Salon &amp; Bridal Studio — luxury hair, skin, and bridal makeup packages with instant online slot booking." />
+  <meta name="version" content="10.0" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230b1220'/%3E%3Cpath d='M16 18 L24 14 L24 40 L35 40 L32 48 L16 48 Z' fill='%23f8fafc'/%3E%3Cpath d='M31 24 L39 16 L48 25 L43 29 L39 25 L39 40 L50 40 L47 48 L31 48 Z' fill='%2310b981'/%3E%3C/svg%3E" />
+  <title>GlowCraft Salon &amp; Bridal Studio | Hair, Skin &amp; Makeup</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    section[id] { scroll-margin-top: 80px; }
+    input[type="date"], input[type="time"] {
+      color: #0f172a !important;
+      background-color: #ffffff !important;
+      min-height: 44px;
+      color-scheme: light;
+    }
+  </style>
+</head>
+<body class="bg-rose-50/30 text-slate-900 antialiased pb-16">
+  <nav class="sticky top-0 z-30 bg-white/95 backdrop-blur border-b border-rose-100">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <a href="/#demos" class="text-xs font-semibold text-rose-700 bg-rose-50 px-2.5 py-1 rounded-lg">&larr; Demos</a>
+        <a href="#top" class="font-extrabold text-base sm:text-lg text-rose-900">GlowCraft Salon</a>
+      </div>
+      <div class="hidden sm:flex items-center gap-6 text-sm font-medium text-slate-600">
+        <a href="#services" class="hover:text-rose-700">Services</a>
+        <a href="#bridal" class="hover:text-rose-700">Bridal Packages</a>
+        <a href="#location" class="hover:text-rose-700">Location</a>
+        <a href="#book" class="px-4 py-2 rounded-xl bg-rose-700 hover:bg-rose-600 text-white font-semibold transition">Book Slot</a>
+      </div>
+    </div>
+  </nav>
+
+  <section id="top" class="max-w-6xl mx-auto px-4 sm:px-6 py-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+    <div class="lg:col-span-6 space-y-5">
+      <span class="inline-block px-3 py-1 rounded-full bg-rose-100 text-rose-900 text-xs font-semibold border border-rose-200">
+        ★ 4.9 Rated · Unisex Hair, Skin &amp; Bridal Studio
+      </span>
+      <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 leading-tight">
+        Signature Styling, Glowing Skin &amp; Effortless Bridal Care.
+      </h1>
+      <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+        Precision haircuts, keratin &amp; balayage, HydraFacial skin rituals, and HD/Airbrush bridal makeup—reserve your preferred stylist slot online with zero waiting.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a href="#book" class="px-5 py-3 rounded-xl bg-rose-700 hover:bg-rose-600 text-white text-sm font-semibold transition">Reserve Appointment</a>
+        <a href="#services" class="px-5 py-3 rounded-xl bg-white hover:bg-rose-50 text-slate-800 text-sm font-semibold border border-rose-200 transition">View Rate Card</a>
+      </div>
+    </div>
+    <div class="lg:col-span-6">
+      <div class="rounded-2xl bg-gradient-to-br from-rose-950 via-rose-900 to-slate-900 text-white p-8 shadow-xl space-y-5 border border-rose-800">
+        <div class="text-xs font-bold uppercase tracking-wider text-rose-300">Studio Highlights</div>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="bg-white/10 rounded-xl p-4"><div class="text-2xl font-extrabold">12+</div><div class="text-xs text-rose-100">Senior Stylists &amp; MUAs</div></div>
+          <div class="bg-white/10 rounded-xl p-4"><div class="text-2xl font-extrabold">100%</div><div class="text-xs text-rose-100">Authentic Salon Brands</div></div>
+          <div class="bg-white/10 rounded-xl p-4"><div class="text-2xl font-extrabold">0 Min</div><div class="text-xs text-rose-100">Wait with Online Slot</div></div>
+          <div class="bg-white/10 rounded-xl p-4"><div class="text-2xl font-extrabold">4.9 ★</div><div class="text-xs text-rose-100">Google Map Rating</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="max-w-6xl mx-auto px-4 sm:px-6 py-12 space-y-6">
+    <div class="flex flex-wrap items-center justify-between gap-4">
+      <div>
+        <h2 class="text-2xl sm:text-3xl font-bold">Salon Rate Card</h2>
+        <p class="text-sm text-slate-600">Filter by Hair, Skin, or Bridal &amp; Grooming.</p>
+      </div>
+      <div class="flex flex-wrap gap-2">
+        <button type="button" data-scat="all" class="s-tab px-3 py-1.5 rounded-lg text-xs font-semibold bg-rose-700 text-white">All</button>
+        <button type="button" data-scat="hair" class="s-tab px-3 py-1.5 rounded-lg text-xs font-semibold bg-white text-slate-700 border border-slate-200">Hair &amp; Color</button>
+        <button type="button" data-scat="skin" class="s-tab px-3 py-1.5 rounded-lg text-xs font-semibold bg-white text-slate-700 border border-slate-200">Skin &amp; Facial</button>
+        <button type="button" data-scat="bridal" class="s-tab px-3 py-1.5 rounded-lg text-xs font-semibold bg-white text-slate-700 border border-slate-200">Bridal</button>
+      </div>
+    </div>
+    <div id="salonGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+  </section>
+
+  <section id="bridal" class="bg-rose-950 text-white py-14">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-3 gap-5">
+      <div class="bg-rose-900/50 rounded-2xl border border-rose-800 p-6 space-y-2">
+        <div class="text-xs font-bold text-rose-300 uppercase">Pre-Bridal Glow</div>
+        <h3 class="text-lg font-bold">3-Session Radiance</h3>
+        <div class="text-2xl font-extrabold">₹7,999</div>
+        <p class="text-xs text-rose-100/80">HydraFacial, full-body polishing, hair spa &amp; manicure/pedicure.</p>
+      </div>
+      <div class="bg-rose-900/70 rounded-2xl border-2 border-rose-400 p-6 space-y-2">
+        <div class="text-xs font-bold text-rose-200 uppercase">Most Booked</div>
+        <h3 class="text-lg font-bold">HD Bridal Signature</h3>
+        <div class="text-2xl font-extrabold">₹16,500</div>
+        <p class="text-xs text-rose-100/80">MAC/Huda HD makeup, hairstyling, saree draping &amp; trial session.</p>
+      </div>
+      <div class="bg-rose-900/50 rounded-2xl border border-rose-800 p-6 space-y-2">
+        <div class="text-xs font-bold text-rose-300 uppercase">Luxury</div>
+        <h3 class="text-lg font-bold">Airbrush Royal Bridal</h3>
+        <div class="text-2xl font-extrabold">₹24,000</div>
+        <p class="text-xs text-rose-100/80">Sweat-proof Temptu Airbrush finish, luxury lashes &amp; family touch-ups.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="book" class="max-w-2xl mx-auto px-4 sm:px-6 py-12">
+    <div class="bg-white rounded-2xl border border-rose-200 shadow-sm p-6 sm:p-8 space-y-4">
+      <h2 class="text-2xl font-bold text-center">Book Your Salon Slot</h2>
+      <form id="salonForm" class="space-y-3">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div><label for="sName" class="block text-xs font-semibold text-slate-700 mb-1">Your Name</label><input id="sName" type="text" required placeholder="e.g. Kritika Jain" class="w-full rounded-xl border border-slate-300 px-4 py-2.5 text-sm bg-white" /></div>
+          <div><label for="sPhone" class="block text-xs font-semibold text-slate-700 mb-1">Phone Number</label><input id="sPhone" type="tel" required placeholder="+91 98XXX XXXXX" class="w-full rounded-xl border border-slate-300 px-4 py-2.5 text-sm bg-white" /></div>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div><label for="sDate" class="block text-xs font-semibold text-slate-700 mb-1">Preferred Date</label><input id="sDate" type="date" required class="w-full rounded-xl border border-slate-300 px-4 py-2.5 text-sm bg-white font-medium" /></div>
+          <div><label for="sService" class="block text-xs font-semibold text-slate-700 mb-1">Service</label><select id="sService" class="w-full rounded-xl border border-slate-300 px-4 py-2.5 text-sm bg-white"><option>Haircut &amp; Styling</option><option>Keratin / Balayage</option><option>HydraFacial Ritual</option><option>Bridal Consultation</option></select></div>
+        </div>
+        <button type="submit" class="w-full py-3 rounded-xl bg-rose-700 hover:bg-rose-600 text-white font-bold text-sm transition">Confirm Salon Slot</button>
+      </form>
+      <div id="salonMsg" class="hidden rounded-xl bg-rose-50 border border-rose-200 p-3 text-xs text-rose-900 text-center"></div>
+    </div>
+  </section>
+
+  <section id="location" class="max-w-6xl mx-auto px-4 sm:px-6 py-12">
+    <div class="bg-white rounded-2xl border border-rose-200 p-6 sm:p-8 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center shadow-sm">
+      <div class="lg:col-span-5 space-y-3">
+        <div class="text-xs font-bold uppercase tracking-wider text-rose-700">Visit Us</div>
+        <h2 class="text-2xl font-bold">GlowCraft Salon &amp; Bridal Studio</h2>
+        <p class="text-sm text-slate-600">1st Floor, Sapphire Arcade, Vijay Nagar, Indore, MP 452010</p>
+        <p class="text-sm text-slate-600">Tue–Sun: 10:30 AM – 8:30 PM · Mon: By Bridal Appointment</p>
+        <p class="text-sm font-semibold text-slate-800">+91 98260 55667</p>
+      </div>
+      <div class="lg:col-span-7">
+        <iframe title="GlowCraft Salon Map" src="https://maps.google.com/maps?q=Vijay+Nagar+Indore&t=m&z=15&ie=UTF8&iwloc=&output=embed" class="w-full h-64 rounded-xl border border-slate-200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 pb-12">
+    <div class="bg-gradient-to-r from-indigo-950 via-slate-900 to-indigo-950 text-white rounded-2xl border border-indigo-500/30 p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+      <div class="space-y-1.5"><span class="inline-block px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-[11px] font-bold uppercase">Built by LocalLift Studio</span><h2 class="text-xl sm:text-2xl font-extrabold">Want a Salon Website Like This?</h2><p class="text-xs sm:text-sm text-slate-300">Get a custom <strong>24-hour free sample preview</strong> for your salon or bridal studio.</p></div>
+      <a href="/#contact" class="px-5 py-3 rounded-xl bg-rose-600 hover:bg-rose-500 text-white text-sm font-bold transition shrink-0">Get 24-Hour Free Sample Preview &rarr;</a>
+    </div>
+  </section>
+
+  <footer class="border-t border-rose-200 py-6 text-center text-xs text-slate-500">GlowCraft Salon &amp; Bridal Studio · Demo Website Built by LocalLift Studio</footer>
+
+  <script>
+    function initDateInputs() {
+      const now = new Date();
+      const yyyy = now.getFullYear();
+      const mm = String(now.getMonth() + 1).padStart(2, "0");
+      const dd = String(now.getDate()).padStart(2, "0");
+      const today = `${yyyy}-${mm}-${dd}`;
+      document.querySelectorAll('input[type="date"]').forEach((el) => {
+        el.min = today;
+        if (!el.value) el.value = today;
+      });
+    }
+    initDateInputs();
+    const SERVICES = [
+      { name: "Signature Haircut & Blowdry", cat: "hair", price: "₹699", desc: "Consultation, wash, precision cut & styling." },
+      { name: "Global Balayage & Gloss", cat: "hair", price: "₹4,499", desc: "Ammonia-free dimensional color with Olaplex care." },
+      { name: "HydraFacial 6-Step Glow", cat: "skin", price: "₹2,499", desc: "Deep pore cleansing, hydration & LED therapy." },
+      { name: "Korean Glass Skin Ritual", cat: "skin", price: "₹2,999", desc: "Peptide infusion for instant luminous skin." },
+      { name: "HD Bridal Makeup", cat: "bridal", price: "₹16,500", desc: "Complete bridal look with hair & draping." },
+      { name: "Groom Luxury Makeover", cat: "bridal", price: "₹4,999", desc: "Hair styling, beard sculpting & instant facial." }
+    ];
+    function renderSalon(cat = "all") {
+      const items = cat === "all" ? SERVICES : SERVICES.filter(s => s.cat === cat);
+      document.getElementById("salonGrid").innerHTML = items.map(s => `<div class="bg-white rounded-2xl border border-rose-100 p-5 space-y-2 shadow-sm"><div class="flex justify-between"><h3 class="font-bold text-slate-900 text-sm">${s.name}</h3><span class="font-extrabold text-rose-700 text-sm">${s.price}</span></div><p class="text-xs text-slate-600">${s.desc}</p></div>`).join("");
+    }
+    document.querySelectorAll(".s-tab").forEach(b => b.addEventListener("click", () => {
+      document.querySelectorAll(".s-tab").forEach(x => x.className = "s-tab px-3 py-1.5 rounded-lg text-xs font-semibold bg-white text-slate-700 border border-slate-200");
+      b.className = "s-tab px-3 py-1.5 rounded-lg text-xs font-semibold bg-rose-700 text-white";
+      renderSalon(b.dataset.scat);
+    }));
+    document.getElementById("salonForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const box = document.getElementById("salonMsg");
+      box.textContent = `Slot saved for ${document.getElementById("sName").value} (${document.getElementById("sService").value} on ${document.getElementById("sDate").value}).`;
+      box.classList.remove("hidden");
+      e.target.reset();
+      initDateInputs();
+    });
+    renderSalon();
+  </script>
+  <a href="/#demos" style="position:fixed;right:14px;bottom:14px;z-index:9999;background:rgba(79,70,229,0.92);backdrop-filter:blur(8px);color:#fff;font:600 11px Inter,system-ui,sans-serif;padding:8px 13px;border-radius:999px;box-shadow:0 6px 20px rgba(0,0,0,.22);text-decoration:none">&larr; Back to all demos</a>
+</body>
+</html>

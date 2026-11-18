@@ -12,6 +12,7 @@ module.exports = async (req, res) => {
     const business = String(body.business || "").trim();
     const city = String(body.city || "").trim();
     const phone = String(body.phone || "").trim();
+    const niche = String(body.niche || "").trim();
     const plan = String(body.plan || "").trim();
 
     if (!business || !phone) {
@@ -30,6 +31,7 @@ module.exports = async (req, res) => {
       business,
       city,
       phone,
+      niche,
       plan,
       status: "New",
       createdAt: new Date().toISOString()

@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="version" content="5.0" />
+  <meta name="description" content="Saffron & Ember Kitchen — modern Indian bistro with Pure Veg filter, party catering packages, and online table reservations." />
+  <meta name="version" content="6.0" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230b1220'/%3E%3Cpath d='M16 18 L24 14 L24 40 L35 40 L32 48 L16 48 Z' fill='%23f8fafc'/%3E%3Cpath d='M31 24 L39 16 L48 25 L43 29 L39 25 L39 40 L50 40 L47 48 L31 48 Z' fill='%2310b981'/%3E%3C/svg%3E" />
   <title>Saffron &amp; Ember Kitchen | Modern Indian Bistro &amp; Cafe</title>
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
@@ -80,6 +81,7 @@
       </div>
     </div>
     <div id="menuGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+    <div id="trayBar" class="hidden bg-stone-900 text-white rounded-2xl p-4 flex flex-wrap items-center justify-between gap-3"><span id="traySummary" class="text-xs font-bold">0 dishes selected for table</span><a href="#reserve" class="px-4 py-2 rounded-xl bg-amber-500 text-stone-950 text-xs font-bold">Attach to Table Booking &darr;</a></div>
   </section>
 
   <!-- Party & Event Catering Packages (Feature Parity) -->
@@ -132,7 +134,7 @@
             <input id="rName" type="text" required placeholder="e.g. Riya Malhotra" class="w-full rounded-xl border border-stone-300 px-4 py-2.5 text-sm text-stone-900 bg-white" />
           </div>
           <div>
-            <label for="rPhone" class="block text-xs font-semibold text-stone-700 mb-1">WhatsApp Number</label>
+            <label for="rPhone" class="block text-xs font-semibold text-stone-700 mb-1">Phone Number</label>
             <input id="rPhone" type="tel" required placeholder="+91 98XXX XXXXX" class="w-full rounded-xl border border-stone-300 px-4 py-2.5 text-sm text-stone-900 bg-white" />
           </div>
         </div>
@@ -172,7 +174,7 @@
             <p>Mon–Sun: 11:30 AM – 11:30 PM (Rooftop Open Till Midnight on Weekends)</p>
           </div>
           <div>
-            <div class="font-semibold text-current">Phone &amp; WhatsApp</div>
+            <div class="font-semibold text-current">Phone &amp; Contact</div>
             <p>+91 98260 77889</p>
           </div>
         </div>
@@ -199,10 +201,10 @@
     <div class="bg-gradient-to-r from-indigo-950 via-slate-900 to-indigo-950 text-white border-indigo-500/30 rounded-2xl border p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-xl">
       <div class="space-y-1.5 max-w-2xl">
         <span class="inline-block px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-[11px] font-bold uppercase tracking-wider border border-emerald-400/30">
-          Built by LocalLift Studio · v5.0
+          Built by LocalLift Studio
         </span>
         <h2 class="text-xl sm:text-2xl font-extrabold text-white">Want a Website Like This for Your Business?</h2>
-        <p class="text-xs sm:text-sm text-slate-300">Get a custom <strong class="text-white">24-hour free sample preview</strong> tailored to your brand, city, and WhatsApp—no upfront payment required.</p>
+        <p class="text-xs sm:text-sm text-slate-300">Get a custom <strong class="text-white">24-hour free sample preview</strong> tailored to your brand, city, and booking flow—no upfront payment required.</p>
       </div>
       <div class="flex flex-wrap gap-3 shrink-0">
         <a href="/#contact" class="px-5 py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-stone-950 text-white text-sm font-bold transition shadow-lg">
@@ -213,7 +215,7 @@
   </section>
 
   <footer class="border-t border-stone-200 py-6 text-center text-xs text-stone-500">
-    Saffron &amp; Ember Kitchen · Demo Website Built by LocalLift Studio · v5.0
+    Saffron &amp; Ember Kitchen · Demo Website Built by LocalLift Studio
   </footer>
 
   <script>
@@ -258,14 +260,27 @@
             <span class="text-sm font-extrabold text-amber-700">${m.price}</span>
           </div>
           <p class="text-xs text-stone-600">${m.desc}</p>
-          ${m.special ? '<span class="self-start text-[10px] font-bold uppercase px-2 py-0.5 rounded bg-amber-100 text-amber-800">Chef Special</span>' : ''}
+          <div class="flex items-center justify-between pt-1">
+            ${m.special ? '<span class="text-[10px] font-bold uppercase px-2 py-0.5 rounded bg-amber-100 text-amber-800">Chef Special</span>' : '<span></span>'}
+            <button type="button" data-dish="${m.name}" class="add-dish-btn text-[11px] font-bold text-stone-800 bg-stone-100 hover:bg-amber-100 px-2.5 py-1 rounded-lg transition">+ Pre-Select</button>
+          </div>
         </div>
       `).join("");
     }
 
     document.getElementById("vegToggle").addEventListener("change", (e) => {
       vegOnly = e.target.checked;
-      renderMenu();
+      const selectedDishes = [];
+    document.getElementById("menuGrid").addEventListener("click", (e) => {
+      const btn = e.target.closest(".add-dish-btn");
+      if (!btn) return;
+      selectedDishes.push(btn.dataset.dish);
+      const bar = document.getElementById("trayBar");
+      bar.classList.remove("hidden");
+      document.getElementById("traySummary").textContent = `${selectedDishes.length} dish(es) pre-selected: ${selectedDishes.slice(-3).join(", ")}`;
+      btn.textContent = "✓ Added";
+    });
+    renderMenu();
     });
 
     document.querySelectorAll(".m-tab").forEach((btn) => {
@@ -293,7 +308,7 @@
       const dt = document.getElementById("rDate").value;
       const tm = document.getElementById("rTime").value;
       const box = document.getElementById("resMsg");
-      box.textContent = `Request for ${guests} guests on ${dt} at ${tm} received for ${name}. We'll confirm via WhatsApp shortly!`;
+      box.textContent = `Request for ${guests} guests on ${dt} at ${tm} received for ${name}. Saved to our reservation desk—we'll confirm shortly!`;
       box.classList.remove("hidden");
       e.target.reset();
       initDateInputs();

@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="version" content="5.0" />
+  <meta name="description" content="SmileCraft Dental & Implant Studio — painless single-sitting RCT, dental implants, and clear aligners with online appointment booking." />
+  <meta name="version" content="6.0" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230b1220'/%3E%3Cpath d='M16 18 L24 14 L24 40 L35 40 L32 48 L16 48 Z' fill='%23f8fafc'/%3E%3Cpath d='M31 24 L39 16 L48 25 L43 29 L39 25 L39 40 L50 40 L47 48 L31 48 Z' fill='%2310b981'/%3E%3C/svg%3E" />
   <title>SmileCraft Dental &amp; Implant Studio | Painless Dental Care</title>
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
@@ -73,7 +74,27 @@
         </div>
       </div>
 
-      <div id="treatmentGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+            <div id="treatmentGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+
+      <!-- Interactive Treatment Cost & Time Estimator -->
+      <div class="bg-white rounded-2xl border border-teal-200 p-5 sm:p-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 shadow-sm">
+        <div class="space-y-1">
+          <span class="text-[11px] font-bold uppercase tracking-wider text-teal-700">Transparent Care Guide</span>
+          <h3 class="text-lg font-bold text-slate-900">Quick Procedure &amp; Time Estimator</h3>
+          <p class="text-xs text-slate-600">Select a treatment to preview sitting time and starting clinic range.</p>
+        </div>
+        <div class="flex flex-wrap items-center gap-3 w-full md:w-auto">
+          <select id="dentalEstSelect" class="rounded-xl border border-slate-300 px-3.5 py-2 text-xs font-semibold bg-white text-slate-900">
+            <option value="rct">Single-Sitting Root Canal</option>
+            <option value="implant">Titanium Dental Implant</option>
+            <option value="aligner">Clear Aligners</option>
+            <option value="whitening">Laser Teeth Whitening</option>
+          </select>
+          <div id="dentalEstOut" class="px-4 py-2 rounded-xl bg-teal-50 border border-teal-200 text-xs font-bold text-teal-900">
+            45 mins · ₹3,500 – ₹5,500 · Painless
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -120,7 +141,7 @@
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <div>
-            <label for="ptPhone" class="block text-xs font-semibold text-slate-700 mb-1">Mobile / WhatsApp Number</label>
+            <label for="ptPhone" class="block text-xs font-semibold text-slate-700 mb-1">Mobile / Phone Number</label>
             <input id="ptPhone" type="tel" required placeholder="+91 98XXX XXXXX" class="w-full rounded-xl border border-slate-300 px-4 py-2.5 text-sm text-slate-900 bg-white" />
           </div>
           <div>
@@ -159,7 +180,7 @@
             <p>Mon–Sat: 10:00 AM – 8:30 PM · Sun: 10:30 AM – 2:00 PM</p>
           </div>
           <div>
-            <div class="font-semibold text-current">Phone &amp; WhatsApp</div>
+            <div class="font-semibold text-current">Phone &amp; Contact</div>
             <p>+91 98260 11223</p>
           </div>
         </div>
@@ -186,10 +207,10 @@
     <div class="bg-gradient-to-r from-indigo-950 via-slate-900 to-indigo-950 text-white border-indigo-500/30 rounded-2xl border p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-xl">
       <div class="space-y-1.5 max-w-2xl">
         <span class="inline-block px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-[11px] font-bold uppercase tracking-wider border border-emerald-400/30">
-          Built by LocalLift Studio · v5.0
+          Built by LocalLift Studio
         </span>
         <h2 class="text-xl sm:text-2xl font-extrabold text-white">Want a Website Like This for Your Business?</h2>
-        <p class="text-xs sm:text-sm text-slate-300">Get a custom <strong class="text-white">24-hour free sample preview</strong> tailored to your brand, city, and WhatsApp—no upfront payment required.</p>
+        <p class="text-xs sm:text-sm text-slate-300">Get a custom <strong class="text-white">24-hour free sample preview</strong> tailored to your brand, city, and booking flow—no upfront payment required.</p>
       </div>
       <div class="flex flex-wrap gap-3 shrink-0">
         <a href="/#contact" class="px-5 py-3 rounded-xl bg-teal-600 hover:bg-teal-500 text-white text-sm font-bold transition shadow-lg">
@@ -200,7 +221,7 @@
   </section>
 
   <footer class="border-t border-slate-200 py-6 text-center text-xs text-slate-500">
-    SmileCraft Dental &amp; Implant Studio · Demo Website Built by LocalLift Studio · v5.0
+    SmileCraft Dental &amp; Implant Studio · Demo Website Built by LocalLift Studio
   </footer>
 
   <script>
@@ -251,13 +272,22 @@
       const svc = document.getElementById("ptService").value;
       const dt = document.getElementById("ptDate").value;
       const box = document.getElementById("apptMsg");
-      box.textContent = `Appointment request received for ${name} (${svc} on ${dt}). Our clinic desk will confirm on WhatsApp shortly.`;
+      box.textContent = `Appointment request received for ${name} (${svc} on ${dt}). Saved to clinic booking queue—our desk will confirm shortly.`;
       box.classList.remove("hidden");
       e.target.reset();
       initDateInputs();
     });
 
     renderTreatments("all");
+    const EST_MAP = {
+      rct: "45 mins · ₹3,500 – ₹5,500 · Painless",
+      implant: "2 Visits · ₹18,000 – ₹28,000 · Lifetime Warranty",
+      aligner: "6–12 Months · ₹45,000+ · 0% EMI Available",
+      whitening: "45 mins · ₹4,500 · Up to 4 Shades Brighter"
+    };
+    document.getElementById("dentalEstSelect")?.addEventListener("change", (e) => {
+      document.getElementById("dentalEstOut").textContent = EST_MAP[e.target.value] || "";
+    });
   </script>
   <!-- Repositioned bottom-right compact pill so it never overlaps left-aligned card headings -->
   <a href="/#demos" style="position:fixed;right:14px;bottom:14px;z-index:9999;background:rgba(79,70,229,0.92);backdrop-filter:blur(8px);color:#fff;font:600 11px Inter,system-ui,sans-serif;padding:8px 13px;border-radius:999px;box-shadow:0 6px 20px rgba(0,0,0,.22);text-decoration:none">&larr; Back to all demos</a>

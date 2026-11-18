@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="version" content="5.0" />
+  <meta name="description" content="The Royal Courtyard Hotel & Lawn — heritage rooms, 2,000-guest wedding lawn, and direct commission-free booking." />
+  <meta name="version" content="6.0" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230b1220'/%3E%3Cpath d='M16 18 L24 14 L24 40 L35 40 L32 48 L16 48 Z' fill='%23f8fafc'/%3E%3Cpath d='M31 24 L39 16 L48 25 L43 29 L39 25 L39 40 L50 40 L47 48 L31 48 Z' fill='%2310b981'/%3E%3C/svg%3E" />
   <title>The Royal Courtyard | Heritage Hotel &amp; Wedding Lawn</title>
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
@@ -181,6 +182,10 @@
         <div class="text-xs uppercase tracking-wider text-stone-400">Recommended Space</div>
         <div id="spaceRec" class="text-xl font-bold text-amber-300">Maharaja AC Banquet + Courtyard</div>
         <div id="parkingRec" class="text-xs text-stone-400">Includes complimentary bridal suite &amp; valet parking</div>
+        <div class="pt-2 flex flex-wrap justify-center gap-2 text-[11px] font-semibold">
+          <span class="px-2.5 py-1 rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">This Weekend: Rooms Open</span>
+          <span class="px-2.5 py-1 rounded-full bg-amber-500/15 text-amber-300 border border-amber-500/30">Next Month: 3 Lawn Dates Left</span>
+        </div>
       </div>
     </div>
   </section>
@@ -195,7 +200,7 @@
             <input id="hName" type="text" required placeholder="e.g. Vikram Singh" class="w-full rounded-xl border border-stone-300 px-4 py-2.5 text-sm text-stone-900 bg-white" />
           </div>
           <div>
-            <label for="hPhone" class="block text-xs font-semibold text-stone-700 mb-1">WhatsApp / Phone Number</label>
+            <label for="hPhone" class="block text-xs font-semibold text-stone-700 mb-1">Phone Number</label>
             <input id="hPhone" type="tel" required placeholder="+91 98XXX XXXXX" class="w-full rounded-xl border border-stone-300 px-4 py-2.5 text-sm text-stone-900 bg-white" />
           </div>
         </div>
@@ -235,7 +240,7 @@
             <p>Front Desk &amp; Check-In: Open 24 Hours · Lawn Visits: 9:00 AM – 9:00 PM</p>
           </div>
           <div>
-            <div class="font-semibold text-current">Phone &amp; WhatsApp</div>
+            <div class="font-semibold text-current">Phone &amp; Contact</div>
             <p>+91 98260 44556</p>
           </div>
         </div>
@@ -262,10 +267,10 @@
     <div class="bg-gradient-to-r from-indigo-950 via-slate-900 to-indigo-950 text-white border-indigo-500/30 rounded-2xl border p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-xl">
       <div class="space-y-1.5 max-w-2xl">
         <span class="inline-block px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-[11px] font-bold uppercase tracking-wider border border-emerald-400/30">
-          Built by LocalLift Studio · v5.0
+          Built by LocalLift Studio
         </span>
         <h2 class="text-xl sm:text-2xl font-extrabold text-white">Want a Website Like This for Your Business?</h2>
-        <p class="text-xs sm:text-sm text-slate-300">Get a custom <strong class="text-white">24-hour free sample preview</strong> tailored to your brand, city, and WhatsApp—no upfront payment required.</p>
+        <p class="text-xs sm:text-sm text-slate-300">Get a custom <strong class="text-white">24-hour free sample preview</strong> tailored to your brand, city, and booking flow—no upfront payment required.</p>
       </div>
       <div class="flex flex-wrap gap-3 shrink-0">
         <a href="/#contact" class="px-5 py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-stone-950 text-white text-sm font-bold transition shadow-lg">
@@ -276,7 +281,7 @@
   </section>
 
   <footer class="border-t border-stone-200 py-6 text-center text-xs text-stone-500">
-    The Royal Courtyard Hotel &amp; Lawn · Demo Website Built by LocalLift Studio · v5.0
+    The Royal Courtyard Hotel &amp; Lawn · Demo Website Built by LocalLift Studio
   </footer>
 
   <script>
@@ -315,7 +320,7 @@
       const type = document.getElementById("hType").value;
       const dt = document.getElementById("hDate").value;
       const box = document.getElementById("hotelMsg");
-      box.textContent = `Thank you, ${name}! Your direct ${type} inquiry for ${dt} has been logged. Our manager will call/WhatsApp you shortly.`;
+      box.textContent = `Thank you, ${name}! Your direct ${type} inquiry for ${dt} has been logged. Saved to our booking desk—our manager will confirm shortly.`;
       box.classList.remove("hidden");
       e.target.reset();
       initDateInputs();
