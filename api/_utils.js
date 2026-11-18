@@ -15,31 +15,35 @@ async function redisGet(key) {
   if (!res.ok) throw new Error(`Redis GET failed: ${res.status}`);
   const data = await res.json();
   if (data.result === null || data.result === undefined) return null;
-  try {
-    return JSON.parse(data.result);
-  } catch {
-    return data.result;
+  let val = data.result;
+  for (let i = 0; i < 2 && typeof val === "string"; i++) {
+    try {
+      val = JSON.parse(val);
+    } catch {
+      break;
+    }
   }
+  return val;
 }
 
 async function redisSet(key, value) {
   const { url, token, configured } = getRedisConfig();
   if (!configured) return false;
   const payload = typeof value === "string" ? value : JSON.stringify(value);
-  const res = await fetch(`${url}/set/${encodeURIComponent(key)}`, {
+  const res = await fetch(url, {
     method: "POST",
     headers: {
       Authorization: `Bearer ${token}`,
       "Content-Type": "application/json"
     },
-    body: JSON.stringify(payload)
+    body: JSON.stringify(["SET", key, payload])
   });
   if (!res.ok) throw new Error(`Redis SET failed: ${res.status}`);
   return true;
 }
 
 function getAuthSecret() {
-  return process.env.CRM_SECRET || process.env.CRM_PASSWORD || "locallift-studio-v3-secret";
+  return process.env.CRM_SECRET || process.env.CRM_PASSWORD || "locallift-studio-v4-secret";
 }
 
 function getCrmPassword() {

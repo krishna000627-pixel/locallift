@@ -951,7 +951,8 @@ https://locallift-psi.vercel.app/#demos</div>
 
     function logAction(business, city, action) {
       const time = new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
-      activityLog.unshift({ time, business, city, action });
+      const id = "log_" + Date.now() + "_" + Math.random().toString(36).slice(2, 6);
+      activityLog.unshift({ id, ts: Date.now(), time, business, city, action });
       saveLog();
       updateKPIs();
       renderActivityLog();
@@ -1209,7 +1210,11 @@ https://locallift-psi.vercel.app/#demos</div>
 
     document.getElementById("pitchesGrid").addEventListener("click", (e) => {
       const btn = e.target.closest(".copy-card-pitch");
-      if (btn) copyText(PITCH_CARDS[Number(btn.dataset.pidx)].lines.join("\n"));
+      if (btn) {
+        const p = PITCH_CARDS[Number(btn.dataset.pidx)];
+        copyText(p.lines.join("\n"));
+        logAction(p.category, "Template", "Copied 3-Line Template");
+      }
     });
 
     function renderAudit() {
@@ -1600,12 +1605,14 @@ https://locallift-psi.vercel.app/#demos</div>
       return h;
     }
 
-    async function pushCloudState() {
+    let _pushTimer = null;
+    async function pushCloudStateNow() {
       if (!crmToken) return;
       try {
         await fetch("/api/crm", {
           method: "POST",
           headers: authHeaders(),
+          keepalive: true,
           body: JSON.stringify({
             action: "save_state",
             statuses,
@@ -1615,6 +1622,13 @@ https://locallift-psi.vercel.app/#demos</div>
           })
         });
       } catch (e) {}
+    }
+    function pushCloudState() {
+      if (!crmToken) return;
+      if (_pushTimer) clearTimeout(_pushTimer);
+      _pushTimer = setTimeout(() => { pushCloudStateNow(); }, 120);
+      // Also fire immediately with keepalive if tab is about to background (e.g. opening WhatsApp)
+      pushCloudStateNow();
     }
 
     function renderIncomingRequests() {
@@ -1668,6 +1682,7 @@ https://locallift-psi.vercel.app/#demos</div>
               headers: authHeaders(),
               body: JSON.stringify({ action: "update_inquiry_status", id, status })
             });
+            logAction(sel.closest(".card-surface")?.querySelector("h3")?.textContent || "Website Ask", "Inbound", `Ask → ${status}`);
             showToast("Request status updated");
           } catch (e) {}
         });
@@ -1696,8 +1711,16 @@ https://locallift-psi.vercel.app/#demos</div>
               allLeads = [...INITIAL_LEADS, ...customLeads].map(l => ({ ...l, tier: classifyTier(l.website) }));
               populateFilters();
             }
-            if (Array.isArray(data.state.activityLog) && data.state.activityLog.length) {
-              activityLog = data.state.activityLog;
+            if (Array.isArray(data.state.activityLog)) {
+              const merged = [...activityLog, ...data.state.activityLog];
+              const seen = new Set();
+              activityLog = merged.filter(item => {
+                const key = item.id || `${item.time}|${item.business}|${item.city}|${item.action}`;
+                if (seen.has(key)) return false;
+                seen.add(key);
+                return true;
+              }).sort((a, b) => (b.ts || 0) - (a.ts || 0)).slice(0, 200);
+              try { localStorage.setItem("ll_activity_log", JSON.stringify(activityLog)); } catch (e) {}
             }
             if (data.state.sopChecks) {
               sopChecks = { ...sopChecks, ...data.state.sopChecks };
@@ -1707,10 +1730,20 @@ https://locallift-psi.vercel.app/#demos</div>
             renderActivityLog();
             renderSOP();
           }
-          incomingRequests = Array.isArray(data.inquiries) ? data.inquiries : [];
+          let localReqs = [];
+          try { localReqs = JSON.parse(localStorage.getItem("ll_local_inquiries") || "[]"); } catch (e) {}
+          const mergedReqs = [...(Array.isArray(data.inquiries) ? data.inquiries : []), ...localReqs];
+          const seenReq = new Set();
+          incomingRequests = mergedReqs.filter(r => {
+            if (!r || !r.id || seenReq.has(r.id)) return false;
+            seenReq.add(r.id);
+            return true;
+          });
           renderIncomingRequests();
           if (!quiet) showToast("Synced with team DB");
         } else {
+          try { incomingRequests = JSON.parse(localStorage.getItem("ll_local_inquiries") || "[]"); } catch (e) {}
+          renderIncomingRequests();
           if (pill) {
             pill.textContent = "○ Local Cache (Add KV DB)";
             pill.className = "hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold bg-amber-500/15 text-amber-300 border border-amber-500/30";

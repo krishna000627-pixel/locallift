@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="version" content="4.0" />
+  <meta name="version" content="5.0" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230b1220'/%3E%3Cpath d='M16 18 L24 14 L24 40 L35 40 L32 48 L16 48 Z' fill='%23f8fafc'/%3E%3Cpath d='M31 24 L39 16 L48 25 L43 29 L39 25 L39 40 L50 40 L47 48 L31 48 Z' fill='%2310b981'/%3E%3C/svg%3E" />
   <title>LocalLift Studio | Web Design &amp; Search SEO India</title>
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
@@ -293,7 +293,7 @@
         <div class="flex items-center gap-2.5 font-bold text-white tracking-tight">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" class="w-8 h-8 rounded-lg shrink-0"><defs><linearGradient id="ftrLogoGrad" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#10b981"/><stop offset="55%" stop-color="#34d399"/><stop offset="100%" stop-color="#22d3ee"/></linearGradient></defs><rect width="64" height="64" rx="16" fill="#0b1220"/><path d="M16 18 L24 14 L24 40 L35 40 L32 48 L16 48 Z" fill="#f8fafc"/><path d="M31 24 L39 16 L48 25 L43 29 L39 25 L39 40 L50 40 L47 48 L31 48 Z" fill="url(#ftrLogoGrad)"/></svg>
           <span>LocalLift Studio</span>
-          <span class="px-2 py-0.5 rounded-md bg-slate-800 text-[10px] text-slate-300 font-semibold">v4.0</span>
+          <span class="px-2 py-0.5 rounded-md bg-slate-800 text-[10px] text-slate-300 font-semibold">v5.0</span>
         </div>
         <p class="text-xs text-slate-400 leading-relaxed">
           High-speed, mobile-first websites and Google Search SEO systems built for clinics, hotels, restaurants, and local brands across India.
@@ -322,7 +322,7 @@
       </div>
     </div>
     <div class="border-t border-slate-900 py-5 text-center text-xs text-slate-500">
-      © 2026 LocalLift Studio · v4.0 · Custom Websites &amp; Search SEO Across India
+      © 2026 LocalLift Studio · v5.0 · Custom Websites &amp; Search SEO Across India
     </div>
   </footer>
 
@@ -422,13 +422,23 @@
       const origText = btn.textContent;
       btn.disabled = true;
       btn.textContent = "Submitting...";
+      let savedToDb = false;
       try {
-        await fetch("/api/inquiries", {
+        const res = await fetch("/api/inquiries", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ business: biz, city, phone, plan })
         });
+        const data = await res.json();
+        savedToDb = Boolean(data && data.savedToDb);
       } catch (err) {}
+      if (!savedToDb) {
+        try {
+          const local = JSON.parse(localStorage.getItem("ll_local_inquiries") || "[]");
+          local.unshift({ id: "req_" + Date.now(), business: biz, city, phone, plan, status: "New", createdAt: new Date().toISOString() });
+          localStorage.setItem("ll_local_inquiries", JSON.stringify(local.slice(0, 100)));
+        } catch (ex) {}
+      }
       const box = document.getElementById("inqSuccess");
       box.textContent = `Thank you! Demo request received for ${biz} (${plan}). LocalLift Studio will reach out on WhatsApp within 24 hours.`;
       box.classList.remove("hidden");
