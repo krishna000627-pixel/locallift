@@ -46,6 +46,33 @@
   </style>
 </head>
 <body class="min-h-screen flex flex-col pb-20 md:pb-8">
+  <!-- Team Passcode Login Gate -->
+  <div id="crmLoginOverlay" class="fixed inset-0 z-[100] bg-slate-950/98 backdrop-blur-xl flex items-center justify-center p-4">
+    <div class="w-full max-w-sm bg-slate-900 border border-white/15 rounded-3xl p-6 sm:p-7 space-y-5 shadow-2xl">
+      <div class="flex items-center gap-3">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" class="w-10 h-10 rounded-xl shrink-0">
+          <defs><linearGradient id="loginLogoGrad" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#10b981"/><stop offset="55%" stop-color="#34d399"/><stop offset="100%" stop-color="#22d3ee"/></linearGradient></defs>
+          <rect width="64" height="64" rx="16" fill="#0b1220"/>
+          <path d="M16 18 L24 14 L24 40 L35 40 L32 48 L16 48 Z" fill="#f8fafc"/>
+          <path d="M31 24 L39 16 L48 25 L43 29 L39 25 L39 40 L50 40 L47 48 L31 48 Z" fill="url(#loginLogoGrad)"/>
+        </svg>
+        <div>
+          <h1 class="text-base font-extrabold text-white">LocalLift Studio CRM</h1>
+          <p class="text-xs text-slate-400">Team Passcode Required</p>
+        </div>
+      </div>
+      <form id="crmLoginForm" class="space-y-3">
+        <div>
+          <label for="crmPassInput" class="block text-[11px] font-semibold text-slate-300 mb-1">Team Passcode</label>
+          <input id="crmPassInput" type="password" required autocomplete="current-password" placeholder="Enter team passcode" class="w-full px-3.5 py-2.5 text-sm bg-slate-950 text-white border border-white/15 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500" />
+        </div>
+        <div id="crmLoginError" class="hidden text-xs text-rose-400 font-semibold"></div>
+        <button id="crmLoginBtn" type="submit" class="w-full py-2.5 rounded-xl text-xs font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 transition">Unlock Team CRM &rarr;</button>
+      </form>
+      <p class="text-[11px] text-slate-500 text-center">Shared team leads, incoming website asks &amp; outreach logs.</p>
+    </div>
+  </div>
+
   <!-- Top Minimal Header (Tap LL to open Sidebar Menu) -->
   <header class="sticky top-0 z-40 glass border-b border-white/10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-3">
@@ -74,13 +101,12 @@
       </div>
 
       <div class="flex items-center gap-2">
+        <span id="dbStatusPill" class="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold bg-slate-800 text-slate-300 border border-white/10">Syncing...</span>
+        <button id="syncNowBtn" type="button" class="px-2.5 py-1.5 rounded-xl text-xs font-semibold bg-white/5 hover:bg-white/10 text-slate-200 border border-white/10 transition" title="Sync Team Data">↻ Sync</button>
+        <button id="lockCrmBtn" type="button" class="px-2.5 py-1.5 rounded-xl text-xs font-semibold bg-rose-500/10 hover:bg-rose-500/20 text-rose-300 border border-rose-500/25 transition" title="Lock CRM">Lock</button>
         <button id="quickMenuBtn" type="button" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-white/5 hover:bg-white/10 text-slate-200 border border-white/10 transition">
           <span>Menu</span>
-          <span class="text-[10px] text-slate-400">⌘</span>
         </button>
-        <a href="https://locallift-psi.vercel.app/#demos" target="_blank" rel="noopener" class="px-3.5 py-1.5 rounded-xl text-xs font-bold bg-emerald-500/15 hover:bg-emerald-500/25 text-emerald-300 border border-emerald-500/30 transition shrink-0">
-          Portfolio ↗
-        </a>
       </div>
     </div>
   </header>
@@ -116,6 +142,10 @@
         <button data-tab="leads" class="side-btn w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-bold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 transition">
           <span class="flex items-center gap-2.5"><span>📋</span><span>Leads CRM</span></span>
           <span class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300">11 Cities</span>
+        </button>
+        <button data-tab="requests" class="side-btn w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-300 hover:bg-white/5 border border-transparent transition">
+          <span class="flex items-center gap-2.5"><span>📥</span><span>Website Asks</span></span>
+          <span id="requestsBadge" class="text-[10px] px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300">0</span>
         </button>
         <button data-tab="examples" class="side-btn w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-300 hover:bg-white/5 border border-transparent transition">
           <span class="flex items-center gap-2.5"><span>🌐</span><span>Real Examples</span></span>
@@ -484,6 +514,18 @@ https://locallift-psi.vercel.app/#demos</div>
         </div>
       </div>
     </section>
+
+    <!-- PAGE 8: INCOMING WEBSITE REQUESTS (ASKS) -->
+    <section id="view-requests" class="hidden fade-in space-y-4">
+      <div class="glass rounded-2xl p-5 flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <h2 class="text-base sm:text-lg font-extrabold text-white">Incoming Website Requests (Asks)</h2>
+          <p class="text-xs sm:text-sm text-slate-300">Every business that submits the "Get 24-Hour Free Demo Preview" form on the main site appears here for the whole team.</p>
+        </div>
+        <button id="refreshRequestsBtn" type="button" class="px-3.5 py-2 text-xs font-bold rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 transition">↻ Refresh Asks</button>
+      </div>
+      <div id="requestsList" class="grid grid-cols-1 md:grid-cols-2 gap-3.5"></div>
+    </section>
   </main>
 
   <!-- Mobile Bottom App Navigation Bar (5 core tabs; tap LL for all 7 pages) -->
@@ -491,8 +533,8 @@ https://locallift-psi.vercel.app/#demos</div>
     <button data-tab="leads" class="mob-btn mob-active flex flex-col items-center gap-0.5 text-[10px] font-bold">
       <span class="text-base">📋</span><span>Leads</span>
     </button>
-    <button data-tab="examples" class="mob-btn mob-idle flex flex-col items-center gap-0.5 text-[10px] font-semibold">
-      <span class="text-base">🌐</span><span>Examples</span>
+    <button data-tab="requests" class="mob-btn mob-idle flex flex-col items-center gap-0.5 text-[10px] font-semibold">
+      <span class="text-base">📥</span><span>Asks</span>
     </button>
     <button data-tab="pitches" class="mob-btn mob-idle flex flex-col items-center gap-0.5 text-[10px] font-semibold">
       <span class="text-base">💬</span><span>3-Line</span>
@@ -1207,6 +1249,7 @@ https://locallift-psi.vercel.app/#demos</div>
     // Sidebar Drawer & Multi-Page Navigation
     const PAGE_LABELS = {
       leads: "Leads CRM",
+      requests: "Website Asks",
       examples: "Real Examples",
       pitches: "3-Line Pitches",
       audit: "Multi-Lens Audit",
@@ -1244,7 +1287,7 @@ https://locallift-psi.vercel.app/#demos</div>
           ? "mob-btn mob-active flex flex-col items-center gap-0.5 text-[10px] font-bold"
           : "mob-btn mob-idle flex flex-col items-center gap-0.5 text-[10px] font-semibold";
       });
-      ["leads", "examples", "pitches", "audit", "logs", "brand", "sop"].forEach(v => {
+      ["leads", "requests", "examples", "pitches", "audit", "logs", "brand", "sop"].forEach(v => {
         document.getElementById(`view-${v}`).classList.toggle("hidden", v !== target);
       });
       closeSidebar();
@@ -1544,6 +1587,200 @@ https://locallift-psi.vercel.app/#demos</div>
 
     renderBrandKit();
     renderSOP();
+
+
+    // === VERCEL SHARED DB & TEAM PASSCODE AUTH ===
+    let crmToken = "";
+    try { crmToken = sessionStorage.getItem("ll_crm_token") || ""; } catch (e) {}
+    let incomingRequests = [];
+
+    function authHeaders() {
+      const h = { "Content-Type": "application/json" };
+      if (crmToken) h["Authorization"] = "Bearer " + crmToken;
+      return h;
+    }
+
+    async function pushCloudState() {
+      if (!crmToken) return;
+      try {
+        await fetch("/api/crm", {
+          method: "POST",
+          headers: authHeaders(),
+          body: JSON.stringify({
+            action: "save_state",
+            statuses,
+            customLeads,
+            activityLog: activityLog.slice(0, 200),
+            sopChecks
+          })
+        });
+      } catch (e) {}
+    }
+
+    function renderIncomingRequests() {
+      const badge = document.getElementById("requestsBadge");
+      const newCount = incomingRequests.filter(r => r.status === "New").length;
+      if (badge) badge.textContent = newCount || incomingRequests.length;
+      const box = document.getElementById("requestsList");
+      if (!box) return;
+      if (!incomingRequests.length) {
+        box.innerHTML = `<div class="col-span-full glass rounded-2xl p-8 text-center text-xs text-slate-400">No incoming website requests yet. When someone submits the form on the main site, it will appear here for all team members.</div>`;
+        return;
+      }
+      box.innerHTML = incomingRequests.map(r => {
+        const waNum = normalizeWaPhone(r.phone);
+        const waText = encodeURIComponent(`Hi ${r.business}${r.city ? " (" + r.city + ")" : ""}! Thanks for requesting your 24-hour free sample preview from LocalLift Studio (${r.plan || "Website"}). Let us know a few details and we will share your preview link!`);
+        const dt = r.createdAt ? new Date(r.createdAt).toLocaleString("en-IN", { dateStyle: "medium", timeStyle: "short" }) : "";
+        return `
+          <div class="card-surface rounded-2xl p-4 flex flex-col justify-between gap-3">
+            <div class="space-y-1.5">
+              <div class="flex items-start justify-between gap-2">
+                <div>
+                  <h3 class="text-sm font-bold text-white">${r.business}</h3>
+                  <p class="text-xs text-slate-400">${r.city || "India"} · <span class="text-emerald-300 font-semibold">${r.plan || "Website"}</span></p>
+                </div>
+                <select data-req-id="${r.id}" class="req-status-sel px-2.5 py-1 rounded-lg text-[11px] font-bold bg-slate-900 text-white border border-white/15">
+                  <option value="New" ${r.status === "New" ? "selected" : ""}>New</option>
+                  <option value="Contacted" ${r.status === "Contacted" ? "selected" : ""}>Contacted</option>
+                  <option value="Preview Sent" ${r.status === "Preview Sent" ? "selected" : ""}>Preview Sent</option>
+                  <option value="Closed" ${r.status === "Closed" ? "selected" : ""}>Closed</option>
+                </select>
+              </div>
+              <p class="text-xs text-emerald-400 font-semibold">📞 ${r.phone}</p>
+              ${dt ? `<p class="text-[11px] text-slate-500">Submitted: ${dt}</p>` : ""}
+            </div>
+            <div class="flex items-center justify-end gap-2 pt-2 border-t border-white/10">
+              <a href="https://wa.me/${waNum}?text=${waText}" target="_blank" rel="noopener" class="px-3.5 py-1.5 rounded-xl text-xs font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 transition">Reply on WhatsApp ↗</a>
+            </div>
+          </div>
+        `;
+      }).join("");
+
+      box.querySelectorAll(".req-status-sel").forEach(sel => {
+        sel.addEventListener("change", async () => {
+          const id = sel.dataset.reqId;
+          const status = sel.value;
+          incomingRequests = incomingRequests.map(x => x.id === id ? { ...x, status } : x);
+          renderIncomingRequests();
+          try {
+            await fetch("/api/crm", {
+              method: "POST",
+              headers: authHeaders(),
+              body: JSON.stringify({ action: "update_inquiry_status", id, status })
+            });
+            showToast("Request status updated");
+          } catch (e) {}
+        });
+      });
+    }
+
+    async function syncFromCloud(quiet = false) {
+      if (!crmToken) return;
+      const pill = document.getElementById("dbStatusPill");
+      try {
+        const res = await fetch("/api/crm", { headers: authHeaders() });
+        if (res.status === 401) {
+          document.getElementById("crmLoginOverlay").classList.remove("hidden");
+          return;
+        }
+        const data = await res.json();
+        if (data.dbConnected) {
+          if (pill) {
+            pill.textContent = "● Cloud DB Synced";
+            pill.className = "hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30";
+          }
+          if (data.state) {
+            statuses = { ...statuses, ...(data.state.statuses || {}) };
+            if (Array.isArray(data.state.customLeads) && data.state.customLeads.length) {
+              customLeads = data.state.customLeads;
+              allLeads = [...INITIAL_LEADS, ...customLeads].map(l => ({ ...l, tier: classifyTier(l.website) }));
+              populateFilters();
+            }
+            if (Array.isArray(data.state.activityLog) && data.state.activityLog.length) {
+              activityLog = data.state.activityLog;
+            }
+            if (data.state.sopChecks) {
+              sopChecks = { ...sopChecks, ...data.state.sopChecks };
+            }
+            updateKPIs();
+            renderLeads();
+            renderActivityLog();
+            renderSOP();
+          }
+          incomingRequests = Array.isArray(data.inquiries) ? data.inquiries : [];
+          renderIncomingRequests();
+          if (!quiet) showToast("Synced with team DB");
+        } else {
+          if (pill) {
+            pill.textContent = "○ Local Cache (Add KV DB)";
+            pill.className = "hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold bg-amber-500/15 text-amber-300 border border-amber-500/30";
+          }
+        }
+      } catch (e) {}
+    }
+
+    // Hook local saves to also push to Cloud DB
+    const _origSaveStatuses = saveStatuses;
+    saveStatuses = function() { _origSaveStatuses(); pushCloudState(); };
+    const _origSaveLog = saveLog;
+    saveLog = function() { _origSaveLog(); pushCloudState(); };
+
+    document.getElementById("syncNowBtn")?.addEventListener("click", () => syncFromCloud(false));
+    document.getElementById("refreshRequestsBtn")?.addEventListener("click", () => syncFromCloud(false));
+    document.getElementById("lockCrmBtn")?.addEventListener("click", async () => {
+      crmToken = "";
+      try { sessionStorage.removeItem("ll_crm_token"); } catch (e) {}
+      try { await fetch("/api/auth", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ action: "logout" }) }); } catch (e) {}
+      document.getElementById("crmPassInput").value = "";
+      document.getElementById("crmLoginOverlay").classList.remove("hidden");
+    });
+
+    document.getElementById("crmLoginForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const pass = document.getElementById("crmPassInput").value;
+      const errBox = document.getElementById("crmLoginError");
+      const btn = document.getElementById("crmLoginBtn");
+      errBox.classList.add("hidden");
+      btn.disabled = true;
+      btn.textContent = "Verifying...";
+      try {
+        const res = await fetch("/api/auth", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ password: pass })
+        });
+        const data = await res.json();
+        if (!res.ok || !data.ok) {
+          errBox.textContent = data.error || "Incorrect passcode";
+          errBox.classList.remove("hidden");
+        } else {
+          crmToken = data.token || "ok";
+          try { sessionStorage.setItem("ll_crm_token", crmToken); } catch (ex) {}
+          document.getElementById("crmLoginOverlay").classList.add("hidden");
+          await syncFromCloud(true);
+        }
+      } catch (err) {
+        errBox.textContent = "Network error — deploy on Vercel to enable auth";
+        errBox.classList.remove("hidden");
+      }
+      btn.disabled = false;
+      btn.textContent = "Unlock Team CRM →";
+    });
+
+    // Auto-unlock if valid session exists
+    (async function checkSession() {
+      if (!crmToken) return;
+      try {
+        const res = await fetch("/api/auth", { headers: authHeaders() });
+        const data = await res.json();
+        if (data.authenticated) {
+          document.getElementById("crmLoginOverlay").classList.add("hidden");
+          await syncFromCloud(true);
+        }
+      } catch (e) {}
+    })();
+
+    setInterval(() => { if (crmToken) syncFromCloud(true); }, 30000);
 
   </script>
 </body>
