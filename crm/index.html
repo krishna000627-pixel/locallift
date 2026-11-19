@@ -141,7 +141,7 @@
         <p class="px-2 text-[10px] font-bold uppercase tracking-widest text-slate-500">Outreach &amp; Research</p>
         <button data-tab="leads" class="side-btn w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-bold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 transition">
           <span class="flex items-center gap-2.5"><span>📋</span><span>Leads CRM</span></span>
-          <span class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300">20 Markets</span>
+          <span class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300">25+ Markets</span>
         </button>
         <button data-tab="requests" class="side-btn w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-300 hover:bg-white/5 border border-transparent transition">
           <span class="flex items-center gap-2.5"><span>📥</span><span>Website Asks</span></span>
@@ -186,7 +186,7 @@
         <div class="card-surface rounded-2xl p-4">
           <p class="text-[11px] font-medium text-slate-400 uppercase tracking-wider">Verified Leads</p>
           <p id="kpiTotal" class="text-2xl sm:text-3xl font-black text-white mt-1">0</p>
-          <p class="text-[11px] text-emerald-400 font-semibold mt-0.5">20 India & Global Markets</p>
+          <p class="text-[11px] text-emerald-400 font-semibold mt-0.5">25+ Low-SEO Markets</p>
         </div>
         <div class="card-surface rounded-2xl p-4">
           <p class="text-[11px] font-medium text-slate-400 uppercase tracking-wider">Hot · No Website</p>
@@ -310,7 +310,7 @@
           <div class="relative h-64"><canvas id="nicheChart"></canvas></div>
         </div>
         <div class="card-surface rounded-2xl p-5">
-          <h3 class="text-sm font-bold text-white mb-3">Leads &amp; Hot Prospects Across 20 Markets</h3>
+          <h3 class="text-sm font-bold text-white mb-3">Leads &amp; Hot Prospects Across 25+ Markets</h3>
           <div class="relative h-64"><canvas id="cityChart"></canvas></div>
         </div>
       </div>
@@ -627,7 +627,6 @@ https://locallift-psi.vercel.app/#demos</div>
 
     // 210+ 100% Grounded Real Businesses across 11 Indian Cities
     const INITIAL_LEADS = [
-      // BHOPAL
       { id: "bh1", name: "Agrawal Dental Clinic", niche: "Dental Clinic", city: "Bhopal", phone: "+91 86020 07752", rating: "5.0", reviews: 166, address: "Nakkar Khana, Peer Gate, Bhopal", website: "https://wa.link/dykv0g" },
       { id: "bh2", name: "Ur Dentist Dr Baghel Clinic", niche: "Dental Clinic", city: "Bhopal", phone: "+91 82331 44250", rating: "4.9", reviews: 552, address: "Gufa Mandir Rd, Lalghati, Bhopal", website: "http://drarjunbaghel.website3.me/" },
       { id: "bh3", name: "Dhameja Dental Clinic", niche: "Dental Clinic", city: "Bhopal", phone: "+91 96301 11187", rating: "5.0", reviews: 338, address: "Panchvati Market, Saket Nagar, Bhopal", website: "https://www.apnabusinesscard.com/DHAMEJA-DENTAL-CLINIC" },
@@ -655,8 +654,6 @@ https://locallift-psi.vercel.app/#demos</div>
       { id: "bh25", name: "Gold Pathology & Diagnostic Centre", niche: "Diagnostic Lab", city: "Bhopal", phone: "+91 82240 13426", rating: "4.8", reviews: 349, address: "AIIMS Gate No 3, Saket Nagar, Bhopal", website: "" },
       { id: "bh26", name: "Pari Pathology Lab", niche: "Diagnostic Lab", city: "Bhopal", phone: "+91 79741 45165", rating: "4.9", reviews: 109, address: "80 Feet Rd, Mahamai Ka Bagh, Bhopal", website: "" },
       { id: "bh27", name: "Satsang Pathology Lab", niche: "Diagnostic Lab", city: "Bhopal", phone: "+91 96170 14870", rating: "5.0", reviews: 66, address: "80 Feet Rd, Karond, Bhopal", website: "" },
-
-      // INDORE
       { id: "in1", name: "Tooth World Dental Clinic", niche: "Dental Clinic", city: "Indore", phone: "+91 97706 48048", rating: "4.9", reviews: 357, address: "Mahalaxmi Nagar, Indore", website: "https://tooth-world-dental.grexa.site/" },
       { id: "in2", name: "Yashoda Dental Clinic", niche: "Dental Clinic", city: "Indore", phone: "+91 81094 24356", rating: "5.0", reviews: 399, address: "Sukhliya, Indore", website: "https://bright-mouth-bot.lovable.app/" },
       { id: "in3", name: "Smile Multispeciality Dental Clinic", niche: "Dental Clinic", city: "Indore", phone: "+91 98260 92665", rating: "4.9", reviews: 1529, address: "Pipliyahana, Indore", website: "http://smiledentalclinicindore.in/" },
@@ -671,11 +668,8 @@ https://locallift-psi.vercel.app/#demos</div>
       { id: "in12", name: "The Waterfall Restaurant Indore", niche: "Restaurant & Cafe", city: "Indore", phone: "+91 70003 59623", rating: "4.8", reviews: 11455, address: "Near MITM College, Rau, Indore", website: "" },
       { id: "in13", name: "neighbourhood", niche: "Restaurant & Cafe", city: "Indore", phone: "+91 93563 34551", rating: "4.6", reviews: 1693, address: "Saket Nagar Main Rd, Indore", website: "" },
       { id: "in14", name: "Piccolo Cafe", niche: "Restaurant & Cafe", city: "Indore", phone: "+91 95897 99499", rating: "4.7", reviews: 1337, address: "Scheme No 54, Indore", website: "https://piccolo.menuqrate.com/" },
-      { id: "in15", name: "Central Lab Indore", niche: "Diagnostic Lab", city: "Indore", phone: "+91 78699 99931", rating: "4.6", reviews: 1444, address: "Yeshwant Plaza, Indore", website: "" },
       { id: "in16", name: "Dr Lal Pathlabs Tulsi Nagar", niche: "Diagnostic Lab", city: "Indore", phone: "+91 88210 28786", rating: "5.0", reviews: 486, address: "Nipania, Indore", website: "" },
       { id: "in17", name: "The Biopsy Diagnostics", niche: "Diagnostic Lab", city: "Indore", phone: "092852 70808", rating: "5.0", reviews: 8251, address: "Khajrana Main Rd, Indore", website: "http://thebiopsy.in/" },
-
-      // JAIPUR
       { id: "jp1", name: "Grover Dental Clinic", niche: "Dental Clinic", city: "Jaipur", phone: "+91 90247 17319", rating: "5.0", reviews: 1178, address: "Adarsh Nagar, Jaipur", website: "https://www.instagram.com/groverdentalclinic" },
       { id: "jp2", name: "Dr. Garg's Family Dental Hospital", niche: "Dental Clinic", city: "Jaipur", phone: "+91 99506 87297", rating: "4.8", reviews: 210, address: "Nirman Nagar, Jaipur", website: "" },
       { id: "jp3", name: "Gupta Dental Clinic (Dr. H.L. Gupta)", niche: "Dental Clinic", city: "Jaipur", phone: "+91 94140 70737", rating: "4.8", reviews: 462, address: "Tonk Road, Jaipur", website: "http://drhlguptadentalclinic.com/index.html" },
@@ -694,8 +688,6 @@ https://locallift-psi.vercel.app/#demos</div>
       { id: "jp16", name: "IDC Path Labs & Diagnostic Centre", niche: "Diagnostic Lab", city: "Jaipur", phone: "+91 90799 89830", rating: "5.0", reviews: 71, address: "Vaishali Nagar, Jaipur", website: "" },
       { id: "jp17", name: "Neo Diagnostics (Provac Labs)", niche: "Diagnostic Lab", city: "Jaipur", phone: "+91 97723 55455", rating: "5.0", reviews: 297, address: "Panchyawala, Jaipur", website: "" },
       { id: "jp18", name: "Dr Lal Path Labs Devi Nagar", niche: "Diagnostic Lab", city: "Jaipur", phone: "+91 96942 22211", rating: "4.9", reviews: 598, address: "Devi Nagar, Jaipur", website: "https://dr-lal-282258.grexa.site/" },
-
-      // LUCKNOW
       { id: "lk1", name: "Dentique Dental Clinic", niche: "Dental Clinic", city: "Lucknow", phone: "+91 99757 64714", rating: "4.9", reviews: 1490, address: "Vrindavan Colony, Lucknow", website: "" },
       { id: "lk2", name: "Maa Durga Dental & Trauma Center", niche: "Dental Clinic", city: "Lucknow", phone: "+91 98395 85017", rating: "5.0", reviews: 1306, address: "Jankipuram, Lucknow", website: "" },
       { id: "lk3", name: "Realtooth Mahanagar", niche: "Dental Clinic", city: "Lucknow", phone: "+91 80811 51128", rating: "4.8", reviews: 4189, address: "Mahanagar, Lucknow", website: "https://realtooth-dental-clinic-mahanagar.zoca.com/" },
@@ -715,8 +707,6 @@ https://locallift-psi.vercel.app/#demos</div>
       { id: "lk17", name: "The Blend Haus Coffee Bar", niche: "Restaurant & Cafe", city: "Lucknow", phone: "+91 70842 71813", rating: "4.8", reviews: 3439, address: "Gomti Nagar, Lucknow", website: "https://www.instagram.com/theblendhaus.coffeebar_dine/" },
       { id: "lk18", name: "Swastika Diagnostics", niche: "Diagnostic Lab", city: "Lucknow", phone: "+91 80048 03902", rating: "5.0", reviews: 11244, address: "Raebareli Rd, Lucknow", website: "" },
       { id: "lk19", name: "Healthy First Healthcare", niche: "Diagnostic Lab", city: "Lucknow", phone: "+91 97954 40009", rating: "4.9", reviews: 713, address: "Gomti Nagar, Lucknow", website: "http://www.healthyfirst.co.in/" },
-
-      // SURAT
       { id: "sr1", name: "Bhayani Dental Clinic", niche: "Dental Clinic", city: "Surat", phone: "+91 91525 25282", rating: "5.0", reviews: 975, address: "Anand Nagar, Surat", website: "" },
       { id: "sr2", name: "Harikrushna Dental Clinic", niche: "Dental Clinic", city: "Surat", phone: "+91 95373 44409", rating: "5.0", reviews: 193, address: "Katargam, Surat", website: "https://sites.google.com/view/harikrushnadental/home" },
       { id: "sr3", name: "Dr. Pratik Kela Dental", niche: "Dental Clinic", city: "Surat", phone: "+91 94272 53180", rating: "4.9", reviews: 2956, address: "Majura Gate, Surat", website: "https://dr-pratik-kela.grexa.site/" },
@@ -736,8 +726,6 @@ https://locallift-psi.vercel.app/#demos</div>
       { id: "sr17", name: "AdvanceCare Pathology Lab", niche: "Diagnostic Lab", city: "Surat", phone: "088663 31249", rating: "4.9", reviews: 844, address: "Nana Varachha, Surat", website: "" },
       { id: "sr18", name: "Mehkey Pathology Lab", niche: "Diagnostic Lab", city: "Surat", phone: "095100 88447", rating: "4.9", reviews: 557, address: "Palanpur, Surat", website: "https://www.facebook.com/mehkeylaboratory" },
       { id: "sr19", name: "Pratham Laboratory", niche: "Diagnostic Lab", city: "Surat", phone: "098983 49867", rating: "5.0", reviews: 263, address: "Katargam, Surat", website: "" },
-
-      // NAGPUR
       { id: "ng1", name: "Swami Dental Clinic", niche: "Dental Clinic", city: "Nagpur", phone: "+91 86682 28045", rating: "4.9", reviews: 809, address: "Umred Rd, Nagpur", website: "" },
       { id: "ng2", name: "Smile Clinic (Smylux Dental)", niche: "Dental Clinic", city: "Nagpur", phone: "+91 80077 00036", rating: "5.0", reviews: 437, address: "Kamptee Rd, Nagpur", website: "http://www.drmanrajsandhu.com/" },
       { id: "ng3", name: "Harisson Celebration Lawn", niche: "Hotel & Banquet", city: "Nagpur", phone: "+91 88066 02606", rating: "4.1", reviews: 732, address: "Wathoda Rd, Nagpur", website: "" },
@@ -754,8 +742,6 @@ https://locallift-psi.vercel.app/#demos</div>
       { id: "ng14", name: "Pablo - The Art Cafe", niche: "Restaurant & Cafe", city: "Nagpur", phone: "+91 90110 22226", rating: "4.2", reviews: 6735, address: "Civil Lines, Nagpur", website: "https://www.zomato.com/nagpur/pablo-the-art-cafe-lounge-civil-lines" },
       { id: "ng15", name: "Little Owl Cafe", niche: "Restaurant & Cafe", city: "Nagpur", phone: "+91 86685 46067", rating: "4.3", reviews: 880, address: "Trimurti Nagar, Nagpur", website: "https://linktr.ee/littleowlcafe" },
       { id: "ng16", name: "Dhande Diagnostic Centre", niche: "Diagnostic Lab", city: "Nagpur", phone: "+91 95520 02948", rating: "4.8", reviews: 922, address: "Ramdaspeth, Nagpur", website: "" },
-
-      // COIMBATORE
       { id: "cb1", name: "Alif Dental Care", niche: "Dental Clinic", city: "Coimbatore", phone: "+91 77089 02212", rating: "5.0", reviews: 374, address: "Ukkadam, Coimbatore", website: "" },
       { id: "cb2", name: "Vijay Dental Care", niche: "Dental Clinic", city: "Coimbatore", phone: "+91 99425 81227", rating: "5.0", reviews: 421, address: "Sowripalayam Rd, Coimbatore", website: "https://site.dgtechsoln.com/vijay-dental-care/" },
       { id: "cb3", name: "Ramalakshmi Mahal A/C Hall", niche: "Hotel & Banquet", city: "Coimbatore", phone: "+91 91710 02510", rating: "4.2", reviews: 514, address: "Peelamedu, Coimbatore", website: "" },
@@ -768,8 +754,6 @@ https://locallift-psi.vercel.app/#demos</div>
       { id: "cb10", name: "Life Line Diagnostic Centre", niche: "Diagnostic Lab", city: "Coimbatore", phone: "+91 74185 20528", rating: "4.9", reviews: 70, address: "Sowripalayam Rd, Coimbatore", website: "" },
       { id: "cb11", name: "G-Bio Laboratories", niche: "Diagnostic Lab", city: "Coimbatore", phone: "+91 82206 66126", rating: "4.8", reviews: 156, address: "Peelamedu, Coimbatore", website: "" },
       { id: "cb12", name: "Agaram Diagnostics", niche: "Diagnostic Lab", city: "Coimbatore", phone: "+91 84893 65247", rating: "4.5", reviews: 339, address: "Gandhipuram, Coimbatore", website: "" },
-
-      // VADODARA
       { id: "vd1", name: "Sanjeevani Dental Clinic", niche: "Dental Clinic", city: "Vadodara", phone: "094274 09241", rating: "5.0", reviews: 783, address: "Manjalpur, Vadodara", website: "" },
       { id: "vd2", name: "Navkar Dental Care", niche: "Dental Clinic", city: "Vadodara", phone: "082008 94584", rating: "4.8", reviews: 873, address: "Mandvi, Vadodara", website: "https://navkar-dental-care.ueniweb.com/" },
       { id: "vd3", name: "Gem's Dental Care", niche: "Dental Clinic", city: "Vadodara", phone: "099786 93131", rating: "4.9", reviews: 309, address: "Gorwa, Vadodara", website: "https://www.instagram.com/yasin_zankhara" },
@@ -786,8 +770,6 @@ https://locallift-psi.vercel.app/#demos</div>
       { id: "vd14", name: "Cafe L'amour", niche: "Restaurant & Cafe", city: "Vadodara", phone: "+91 88490 55749", rating: "4.5", reviews: 443, address: "New Sama, Vadodara", website: "https://www.instagram.com/cafe_l.amour/" },
       { id: "vd15", name: "The Table at Splatter", niche: "Restaurant & Cafe", city: "Vadodara", phone: "+91 75070 11992", rating: "4.2", reviews: 614, address: "Alkapuri, Vadodara", website: "" },
       { id: "vd16", name: "LaboPath Pathology Laboratory", niche: "Diagnostic Lab", city: "Vadodara", phone: "+91 94298 43938", rating: "5.0", reviews: 2286, address: "Manjalpur, Vadodara", website: "" },
-
-      // PUNE (NEW)
       { id: "pn1", name: "Dr Vijay's Dental Clinic", niche: "Dental Clinic", city: "Pune", phone: "+91 70575 80138", rating: "4.9", reviews: 362, address: "Phursungi, Hadapsar, Pune", website: "https://drvijaydentalclinic.tiiny.site/" },
       { id: "pn2", name: "Dr. Ashish Dental Clinic", niche: "Dental Clinic", city: "Pune", phone: "+91 70209 65416", rating: "4.9", reviews: 901, address: "Keshav Nagar, Mundhwa, Pune", website: "" },
       { id: "pn3", name: "Dr Ratnika's Smile Up Dental", niche: "Dental Clinic", city: "Pune", phone: "+91 89997 51605", rating: "4.8", reviews: 1176, address: "Kharadi, Pune", website: "http://www.drratnikasmileup.in/" },
@@ -805,8 +787,6 @@ https://locallift-psi.vercel.app/#demos</div>
       { id: "pn15", name: "The Rustle Nest", niche: "Restaurant & Cafe", city: "Pune", phone: "070309 90044", rating: "4.2", reviews: 2119, address: "Baner Rd, Pune", website: "https://www.zomato.com/pune/the-rustle-nest-bakery-bistro-2-baner" },
       { id: "pn16", name: "Sky Healthcare Pathology Lab", niche: "Diagnostic Lab", city: "Pune", phone: "+91 90119 72177", rating: "4.9", reviews: 466, address: "Kharadi, Pune", website: "https://jsdl.in/DT-49VS4LAV2MM" },
       { id: "pn17", name: "The Galaxy Diagnostic Centre", niche: "Diagnostic Lab", city: "Pune", phone: "+91 75179 00011", rating: "4.9", reviews: 4631, address: "Vishrantwadi, Pune", website: "http://thegalaxydiagnosticcentre.com/" },
-
-      // AHMEDABAD (NEW)
       { id: "ah1", name: "Maple Dental Multi-Speciality", niche: "Dental Clinic", city: "Ahmedabad", phone: "098987 00084", rating: "5.0", reviews: 342, address: "Thaltej, Ahmedabad", website: "" },
       { id: "ah2", name: "Happy Dental Clinic", niche: "Dental Clinic", city: "Ahmedabad", phone: "099094 66409", rating: "5.0", reviews: 2307, address: "Chandkheda, Ahmedabad", website: "http://www.happydentalclinic.in/" },
       { id: "ah3", name: "Arham Dental Clinic", niche: "Dental Clinic", city: "Ahmedabad", phone: "090335 65729", rating: "4.9", reviews: 759, address: "Vasna, Ahmedabad", website: "http://www.arhamdentalclinic.com/" },
@@ -823,8 +803,6 @@ https://locallift-psi.vercel.app/#demos</div>
       { id: "ah14", name: "Z27 Coffee Bar", niche: "Restaurant & Cafe", city: "Ahmedabad", phone: "+91 63594 82264", rating: "4.3", reviews: 1310, address: "Thaltej, Ahmedabad", website: "" },
       { id: "ah15", name: "Nexus Diagnostics Pathology Lab", niche: "Diagnostic Lab", city: "Ahmedabad", phone: "+91 78620 70278", rating: "5.0", reviews: 280, address: "Memnagar, Ahmedabad", website: "http://nexusdiagnostics.com/" },
       { id: "ah16", name: "Labix Diagnostics Pathology", niche: "Diagnostic Lab", city: "Ahmedabad", phone: "+91 97266 76762", rating: "4.9", reviews: 420, address: "Naranpura, Ahmedabad", website: "http://labixdiagnostics.com/" },
-
-      // CHANDIGARH (NEW)
       { id: "ch1", name: "Dentocare Sector 46", niche: "Dental Clinic", city: "Chandigarh", phone: "+91 87007 46141", rating: "5.0", reviews: 557, address: "Sector 46C, Chandigarh", website: "https://www.justdial.com/Chandigarh/Dentists/nct-10156331/" },
       { id: "ch2", name: "DENTISTREE Sector 22", niche: "Dental Clinic", city: "Chandigarh", phone: "+91 98766 01854", rating: "5.0", reviews: 1089, address: "Sector 22B, Chandigarh", website: "https://www.facebook.com/Dentistree22/" },
       { id: "ch3", name: "DENTAL LIFELINE Clinic", niche: "Dental Clinic", city: "Chandigarh", phone: "+91 82830 50396", rating: "5.0", reviews: 614, address: "Sector 18A, Chandigarh", website: "http://dentallifeline.com/" },
@@ -841,44 +819,87 @@ https://locallift-psi.vercel.app/#demos</div>
       { id: "ch14", name: "Cafe Olio", niche: "Restaurant & Cafe", city: "Chandigarh", phone: "+91 98725 57225", rating: "4.1", reviews: 739, address: "Sector 35B, Chandigarh", website: "https://www.instagram.com/cafe.olio/" },
       { id: "ch15", name: "Atulaya Healthcare Sec 41", niche: "Diagnostic Lab", city: "Chandigarh", phone: "+91 97790 50661", rating: "4.9", reviews: 61, address: "Sector 41D, Chandigarh", website: "https://sites.google.com/view/atulaya/home" },
       { id: "ch16", name: "Sri Guru Har Rai Sahib Diagnostic", niche: "Diagnostic Lab", city: "Chandigarh", phone: "+91 97800 32691", rating: "4.9", reviews: 5230, address: "Sector 22D, Chandigarh", website: "http://sghrsdc22.com/" },
-      // MUMBAI, DELHI, BENGALURU, HYDERABAD, KOLKATA, CHENNAI (TOP METRO GRABBERS)
-      { id: "mb1", name: "V Care Dental Clinic", niche: "Dental Clinic", city: "Mumbai", phone: "+91 98208 17899", rating: "4.9", reviews: 283, address: "Mulund West, Mumbai", website: "https://vcaredentalclinic.in/" },
-      { id: "mb2", name: "Kadali Dental Clinic", niche: "Dental Clinic", city: "Mumbai", phone: "+91 98192 01882", rating: "4.9", reviews: 207, address: "Andheri West, Mumbai", website: "https://kadalidental.com/" },
-      { id: "mb3", name: "Swiss Dental Clinic", niche: "Dental Clinic", city: "Mumbai", phone: "+91 80971 68966", rating: "5.0", reviews: 119, address: "Bandra West, Mumbai", website: "https://swissdentalaesthetics.com/" },
-      { id: "mb4", name: "Lotus Dental Care Clinic", niche: "Dental Clinic", city: "Mumbai", phone: "+91 99871 58061", rating: "4.9", reviews: 715, address: "Sector 17, Vashi, Navi Mumbai", website: "https://lotusdentalcareclinic.com/" },
-      { id: "mb5", name: "Citizen Hotel", niche: "Hotel & Banquet", city: "Mumbai", phone: "+91 97694 73110", rating: "4.1", reviews: 2759, address: "Juhu Beach, Mumbai", website: "https://citizenhotelmumbai.com/" },
-      { id: "mb6", name: "Hotel Parle International", niche: "Hotel & Banquet", city: "Mumbai", phone: "+91 85914 93710", rating: "4.2", reviews: 7465, address: "Vile Parle East, Mumbai", website: "https://hotelparleinternational.com/" },
-      { id: "mb7", name: "Goldfinch Hotel Mumbai", niche: "Hotel & Banquet", city: "Mumbai", phone: "+91 22 6688 0909", rating: "4.2", reviews: 9619, address: "MIDC, Andheri East, Mumbai", website: "https://www.goldfinchhotels.com/" },
       { id: "dl1", name: "Kalyani Dental Clinic", niche: "Dental Clinic", city: "Delhi", phone: "+91 98108 80180", rating: "4.9", reviews: 679, address: "New Ashok Nagar, Delhi", website: "http://kalyanidentalclinic.com/" },
-      { id: "dl2", name: "Clay Inn Hotels", niche: "Hotel & Banquet", city: "Delhi", phone: "+91 85888 70249", rating: "4.1", reviews: 637, address: "Paschim Vihar, Delhi", website: "https://delhi.clayinnhotel.com/" },
-      { id: "dl3", name: "Goldfinch Hotel Delhi NCR", niche: "Hotel & Banquet", city: "Delhi", phone: "+91 129 424 9999", rating: "4.0", reviews: 3633, address: "Sector 39, Faridabad, Delhi NCR", website: "https://www.goldfinchhotels.com/" },
-      { id: "bl1", name: "Dental Den, Hennur", niche: "Dental Clinic", city: "Bengaluru", phone: "+91 99000 87667", rating: "4.7", reviews: 208, address: "Hennur Main Road, Bengaluru", website: "https://www.dentalden.in/" },
       { id: "bl2", name: "Centric Dental Care", niche: "Dental Clinic", city: "Bengaluru", phone: "+91 95919 26194", rating: "5.0", reviews: 114, address: "J. P. Nagar 8th Phase, Bengaluru", website: "" },
-      { id: "bl3", name: "Goldfinch Hotel Bengaluru", niche: "Hotel & Banquet", city: "Bengaluru", phone: "+91 80 4129 1300", rating: "4.1", reviews: 12910, address: "Race Course Road, Bengaluru", website: "https://www.goldfinchhotels.com/" },
-      { id: "hy1", name: "Aquats Path Labs", niche: "Diagnostic Lab", city: "Hyderabad", phone: "+91 90639 06319", rating: "4.8", reviews: 180, address: "Hyderabad, Telangana", website: "https://aquatspathlabs.com/" },
-      { id: "hy2", name: "Cafe Twenty One", niche: "Restaurant & Cafe", city: "Hyderabad", phone: "+91 96402 23321", rating: "4.5", reviews: 803, address: "Narsingi, Kokapet, Hyderabad", website: "https://cafetwentyone.in/" },
-      { id: "hy3", name: "Theory Patisserie & Cafe", niche: "Restaurant & Cafe", city: "Hyderabad", phone: "+91 83676 96769", rating: "4.2", reviews: 2216, address: "Road No. 13, Jubilee Hills, Hyderabad", website: "https://theorycafe.in/" },
-      { id: "hy4", name: "Mandiram Restaurant", niche: "Restaurant & Cafe", city: "Hyderabad", phone: "+91 95159 82442", rating: "3.9", reviews: 265, address: "RTC X Road, Hyderabad", website: "https://mandiramrestaurant.in/" },
-      { id: "hy5", name: "Cafe Niloufer Hitech City", niche: "Restaurant & Cafe", city: "Hyderabad", phone: "+91 63038 63695", rating: "4.3", reviews: 9245, address: "Raidurgam, Hitech City, Hyderabad", website: "https://cafeniloufer.com/" },
-      { id: "kl1", name: "New Mediclue Diagnostics", niche: "Diagnostic Lab", city: "Kolkata", phone: "+91 93311 55776", rating: "4.7", reviews: 328, address: "Chowringhee Road, Bhowanipore, Kolkata", website: "https://newmediclue.com/" },
-      { id: "kl2", name: "CPL Diagnostics (Calcutta Pathlabs)", niche: "Diagnostic Lab", city: "Kolkata", phone: "+91 92307 02815", rating: "4.8", reviews: 441, address: "Canal South Road, Kolkata", website: "https://www.cpl.net.in/" },
-      { id: "kl3", name: "SERUM Analysis Centre", niche: "Diagnostic Lab", city: "Kolkata", phone: "+91 98302 74990", rating: "4.8", reviews: 410, address: "Bidhan Sarani, Kolkata", website: "https://www.serumanalysiscentre.com/" },
       { id: "kl4", name: "Sei Vui Restaurant", niche: "Restaurant & Cafe", city: "Kolkata", phone: "+91 98747 18756", rating: "4.5", reviews: 3029, address: "Tiretti, Kolkata", website: "" },
       { id: "kl5", name: "4 Season Kitchen", niche: "Restaurant & Cafe", city: "Kolkata", phone: "+91 62891 55055", rating: "4.8", reviews: 53, address: "Bentinck Street, Esplanade, Kolkata", website: "" },
       { id: "kl6", name: "Sufi Palace", niche: "Restaurant & Cafe", city: "Kolkata", phone: "+91 84500 77775", rating: "4.2", reviews: 5592, address: "College Street, Kolkata", website: "" },
-      { id: "cn1", name: "Anderson Diagnostics & Labs", niche: "Diagnostic Lab", city: "Chennai", phone: "+91 90038 94030", rating: "4.6", reviews: 320, address: "OMR, Chennai", website: "https://www.andersondiagnostics.com/" },
-      // FOREIGN CLIENTS (DUBAI, TORONTO, SYDNEY)
-      { id: "fg1", region: "Foreign", name: "Elite Smile Dental Clinic", niche: "Dental Clinic", city: "Dubai (UAE)", phone: "+971 56 664 3427", rating: "5.0", reviews: 201, address: "SIT Tower, Dubai Silicon Oasis, Dubai", website: "https://elitesmiledentalclinic.ae/" },
       { id: "fg2", region: "Foreign", name: "Floss And Gloss Dental Clinic", niche: "Dental Clinic", city: "Dubai (UAE)", phone: "+971 4 266 5219", rating: "4.9", reviews: 1013, address: "Al Diyafa Shopping Center, Satwa, Dubai", website: "" },
       { id: "fg3", region: "Foreign", name: "Dr Suzan Assarian Dental Clinic", niche: "Dental Clinic", city: "Dubai (UAE)", phone: "+971 56 922 8802", rating: "5.0", reviews: 925, address: "Al Saqr Business Tower, Trade Center, Dubai", website: "" },
       { id: "fg4", region: "Foreign", name: "Noor Al Inaya Dental Clinic", niche: "Dental Clinic", city: "Dubai (UAE)", phone: "+971 58 227 2290", rating: "5.0", reviews: 831, address: "Deira, Near Baniyas Metro, Dubai", website: "" },
-      { id: "fg5", region: "Foreign", name: "Queens Elite Medical", niche: "Dental Clinic", city: "Dubai (UAE)", phone: "+971 4 399 0402", rating: "4.9", reviews: 590, address: "Dubai Marina, Dubai", website: "https://queenselitemedical.com/" },
       { id: "fg6", region: "Foreign", name: "Pearl Dental Implants Centre", niche: "Dental Clinic", city: "Dubai (UAE)", phone: "+971 54 475 2767", rating: "5.0", reviews: 699, address: "Citadel Tower, Business Bay, Dubai", website: "" },
-      { id: "fg7", region: "Foreign", name: "Fox on John", niche: "Restaurant & Cafe", city: "Toronto (Canada)", phone: "+1 647-748-0369", rating: "4.7", reviews: 14727, address: "106 John Street, Toronto, ON", website: "https://www.foxonjohn.ca/" },
-      { id: "fg8", region: "Foreign", name: "Elephant & Castle Toronto", niche: "Restaurant & Cafe", city: "Toronto (Canada)", phone: "+1 416-598-4455", rating: "4.2", reviews: 4436, address: "212 King Street West, Toronto, ON", website: "https://www.elephantcastle.com/" },
       { id: "fg9", region: "Foreign", name: "Trios Bistro", niche: "Restaurant & Cafe", city: "Toronto (Canada)", phone: "+1 416-204-9018", rating: "4.2", reviews: 135, address: "525 Bay Street, Toronto, ON", website: "" },
-      { id: "fg10", region: "Foreign", name: "Cafe Sydney", niche: "Restaurant & Cafe", city: "Sydney (Australia)", phone: "+61 2 9251 8683", rating: "4.6", reviews: 3200, address: "Customs House, Sydney NSW 2000", website: "https://cafesydney.com/" },
-      { id: "fg11", region: "Foreign", name: "The Grounds of Alexandria", niche: "Restaurant & Cafe", city: "Sydney (Australia)", phone: "+61 2 9699 2225", rating: "4.3", reviews: 7145, address: "7a/2 Huntley St, Alexandria NSW, Sydney", website: "https://thegrounds.com.au/" }
+      { id: "nh1", name: "Ideal Family Salon", niche: "Salon & Spa", city: "Bhopal", phone: "+91 91797 66000", rating: "4.7", reviews: 940, address: "E-5, Arera Colony, Bhopal", website: "" },
+      { id: "nh2", name: "Mihika Salon and Academy", niche: "Salon & Spa", city: "Indore", phone: "+91 94259 10501", rating: "4.4", reviews: 170, address: "Kanadia Main Road, Indore", website: "" },
+      { id: "nh3", name: "Cherry Beauty Salon", niche: "Salon & Spa", city: "Indore", phone: "+91 90399 04776", rating: "4.9", reviews: 161, address: "MR 4 Road, Mahalaxmi Nagar, Indore", website: "" },
+      { id: "nh4", name: "Kira Exotica Beauty Salon", niche: "Salon & Spa", city: "Indore", phone: "+91 90982 22512", rating: "4.5", reviews: 848, address: "5 AB Road, Sanghi Colony, Indore", website: "" },
+      { id: "nh5", name: "Tulip Beauty Salon", niche: "Salon & Spa", city: "Indore", phone: "+91 98260 47377", rating: "4.7", reviews: 273, address: "109 Shri Nagar Main Rd, Indore", website: "" },
+      { id: "nh6", name: "Belle Femme Salon", niche: "Salon & Spa", city: "Indore", phone: "+91 88899 22020", rating: "4.6", reviews: 62, address: "E-99, Saket Nagar Main Rd, Indore", website: "" },
+      { id: "nh7", name: "Orange Styling Studio", niche: "Salon & Spa", city: "Indore", phone: "+91 88894 77754", rating: "4.6", reviews: 1204, address: "119 LIG Link Road, Anoop Nagar, Indore", website: "" },
+      { id: "nh8", name: "Beauty Creation Salon & Academy", niche: "Salon & Spa", city: "Indore", phone: "+91 99811 14333", rating: "4.9", reviews: 969, address: "Sector A, Mahalaxmi Nagar, Indore", website: "" },
+      { id: "nh9", name: "Shear Genius Unisex Salon", niche: "Salon & Spa", city: "Indore", phone: "+91 92851 23453", rating: "4.6", reviews: 1849, address: "Scheme No 54, Vijay Nagar, Indore", website: "" },
+      { id: "nh10", name: "Glow Zone Beauty Salon", niche: "Salon & Spa", city: "Indore", phone: "+91 99812 14440", rating: "4.5", reviews: 120, address: "41 Rajendra Nagar, Indore", website: "" },
+      { id: "nh11", name: "Panache Beauty", niche: "Salon & Spa", city: "Jaipur", phone: "+91 94617 68499", rating: "4.9", reviews: 151, address: "Sumer Nagar, Mansarovar, Jaipur", website: "" },
+      { id: "nh12", name: "Fuel Fitness Gym", niche: "Gym & Fitness", city: "Indore", phone: "+91 99263 02200", rating: "4.8", reviews: 650, address: "38 Juna Tukoganj, Indore", website: "" },
+      { id: "nh13", name: "Icon Fitness Gym", niche: "Gym & Fitness", city: "Indore", phone: "+91 91791 44595", rating: "4.3", reviews: 55, address: "Bholaram Ustad Marg, Bhawarkua, Indore", website: "" },
+      { id: "nh14", name: "Janki Paradise Marriage Garden", niche: "Hotel & Banquet", city: "Jaipur", phone: "+91 98290 07106", rating: "4.2", reviews: 644, address: "Gandhi Path Rd, Vaishali Nagar, Jaipur", website: "" },
+      { id: "nh15", name: "Aamantran By Mysore Mahal", niche: "Hotel & Banquet", city: "Jaipur", phone: "+91 90011 97093", rating: "4.5", reviews: 1555, address: "Sirsi Road, Kanakpura, Jaipur", website: "" },
+      { id: "nh16", name: "Hanuta Banquet Hall", niche: "Hotel & Banquet", city: "Jaipur", phone: "+91 81041 09119", rating: "4.4", reviews: 226, address: "Iskcon Road, Mansarovar, Jaipur", website: "" },
+      { id: "nh17", name: "Jodhpur Garden Banquet", niche: "Hotel & Banquet", city: "Jaipur", phone: "+91 90011 06000", rating: "4.0", reviews: 317, address: "Ajmer Road, Sodala, Jaipur", website: "" },
+      { id: "nh18", name: "Palm Marriage Garden", niche: "Hotel & Banquet", city: "Patna", phone: "+91 90060 93006", rating: "4.7", reviews: 1098, address: "Phulwari Sharif, Patna", website: "" },
+      { id: "nh19", name: "Bhagwat Banquets & Hotels", niche: "Hotel & Banquet", city: "Patna", phone: "+91 97091 11125", rating: "4.3", reviews: 1479, address: "Chitragupta Nagar, Patna", website: "" },
+      { id: "nh20", name: "Pink City Banquet", niche: "Hotel & Banquet", city: "Patna", phone: "+91 70707 00319", rating: "4.4", reviews: 176, address: "Gaya Road, Pahari, Patna", website: "" },
+      { id: "nh21", name: "Unique Garden", niche: "Hotel & Banquet", city: "Patna", phone: "+91 91215 82737", rating: "4.1", reviews: 230, address: "Bailey Road, Rukanpura, Patna", website: "" },
+      { id: "nh22", name: "Endocrine Laboratory", niche: "Diagnostic Lab", city: "Indore", phone: "+91 62326 66299", rating: "4.4", reviews: 86, address: "100 Jaora Compound, Opp. MY Hospital, Indore", website: "" },
+      { id: "nh23", name: "Namami Diagnostics", niche: "Diagnostic Lab", city: "Indore", phone: "+91 62631 86610", rating: "4.5", reviews: 16, address: "AB Road, Mangliya, Indore", website: "" },
+      { id: "nh24", name: "Dr Atul Kathed Clinic", niche: "Dental Clinic", city: "Indore", phone: "+91 98260 14164", rating: "4.8", reviews: 1338, address: "MIG AB Road, Phadnis Colony, Indore", website: "" },
+      { id: "nh25", name: "M.K. Dental Clinic", niche: "Dental Clinic", city: "Raipur", phone: "+91 93006 65579", rating: "4.8", reviews: 935, address: "Mandi Gate, Pandri, Raipur", website: "" },
+      { id: "ls1", name: "Jabalpur Dental Clinic (Dr. Rao)", niche: "Dental Clinic", city: "Jabalpur", phone: "+91 79873 87948", rating: "4.8", reviews: 12, address: "Sharda Chowk, Ganga Sagar Rd, Jabalpur", website: "" },
+      { id: "ls2", name: "Mithilesh Dental Clinic", niche: "Dental Clinic", city: "Jabalpur", phone: "+91 91250 60589", rating: "4.7", reviews: 3, address: "Mastana Chowk, Ranjhi, Jabalpur", website: "" },
+      { id: "ls3", name: "Napier Town Dental Hub", niche: "Dental Clinic", city: "Jabalpur", phone: "+91 62676 46264", rating: "4.9", reviews: 1242, address: "Dutt Plaza, Napier Town, Jabalpur", website: "https://localo.site/" },
+      { id: "ls4", name: "Trivedi Dental Center", niche: "Dental Clinic", city: "Jabalpur", phone: "+91 761 231 5786", rating: "4.2", reviews: 100, address: "1553 Satya Ashoka Hotel Rd, Wright Town, Jabalpur", website: "" },
+      { id: "ls5", name: "Sun Path Lab Jabalpur", niche: "Diagnostic Lab", city: "Jabalpur", phone: "+91 93007 55303", rating: "4.9", reviews: 77, address: "Siddhi Vinayak Plaza, Russel Chowk, Jabalpur", website: "" },
+      { id: "ls6", name: "Health Checkup Center Ekta Chowk", niche: "Diagnostic Lab", city: "Jabalpur", phone: "+91 77338 85311", rating: "4.4", reviews: 8, address: "P-25, MR-4 Road, Ekta Nagar, Jabalpur", website: "" },
+      { id: "ls7", name: "Expresso Grand Salon", niche: "Salon & Spa", city: "Jabalpur", phone: "+91 62601 64034", rating: "4.8", reviews: 102, address: "144 Link Road, Madan Mahal, Jabalpur", website: "https://expresso-grand-salon.localo.site/" },
+      { id: "ls8", name: "Expresso Prime Salon", niche: "Salon & Spa", city: "Jabalpur", phone: "+91 761 492 5944", rating: "4.9", reviews: 114, address: "Madan Mahal Station Rd, Wright Town, Jabalpur", website: "" },
+      { id: "ls9", name: "Sarnath Marriage Lawn", niche: "Hotel & Banquet", city: "Varanasi", phone: "+91 94507 96284", rating: "4.1", reviews: 83, address: "Museum Road, Sarnath, Varanasi", website: "" },
+      { id: "ls10", name: "Sahara Marriage Garden", niche: "Hotel & Banquet", city: "Varanasi", phone: "+91 73550 47678", rating: "3.9", reviews: 707, address: "NH-28, Babatpur, Varanasi", website: "" },
+      { id: "ls11", name: "Mahal The Palace Banquet & Lawn", niche: "Hotel & Banquet", city: "Varanasi", phone: "+91 85739 93399", rating: "3.8", reviews: 206, address: "Bada Lalpur, Lamhi, Varanasi", website: "" },
+      { id: "ls12", name: "Shiv Vatika Marriage Lawn", niche: "Hotel & Banquet", city: "Varanasi", phone: "+91 70077 26683", rating: "4.3", reviews: 95, address: "Bhawanipur Pissaur, Varanasi", website: "" },
+      { id: "ls13", name: "Aatithya Food & Hospitality", niche: "Hotel & Banquet", city: "Varanasi", phone: "+91 99351 09113", rating: "4.4", reviews: 140, address: "Siddhgiribagh, Sigra, Varanasi", website: "" },
+      { id: "ls14", name: "RMP Weddings & Events", niche: "Hotel & Banquet", city: "Varanasi", phone: "+91 94532 00691", rating: "4.5", reviews: 65, address: "Sunderpur, Varanasi", website: "" },
+      { id: "ls15", name: "A Square Salon Nashik", niche: "Salon & Spa", city: "Nashik", phone: "+91 99213 90372", rating: "4.6", reviews: 85, address: "Gangapur Road, Nashik", website: "" },
+      { id: "ls16", name: "Madhav Salon Nashik", niche: "Salon & Spa", city: "Nashik", phone: "+91 99708 79710", rating: "4.5", reviews: 70, address: "K. Nagar, Gangapur Road, Nashik", website: "" },
+      { id: "ls17", name: "The HeadQuarter Cafe", niche: "Restaurant & Cafe", city: "Agra", phone: "+91 81096 25825", rating: "4.8", reviews: 52, address: "GT Road, Dholpur Agra Road, Agra", website: "" },
+      { id: "ls18", name: "Orin Body Spa Lounge", niche: "Salon & Spa", city: "Agra", phone: "+91 72480 76234", rating: "4.8", reviews: 100, address: "Fatehabad Road, Tajganj, Agra", website: "" },
+      { id: "ls19", name: "Glamour Zone Salon", niche: "Salon & Spa", city: "Agra", phone: "+91 94124 26274", rating: "4.7", reviews: 199, address: "Near SBI Bank, Firozabad, Agra Region", website: "" },
+      { id: "ls20", name: "Jannat Beauty World", niche: "Salon & Spa", city: "Agra", phone: "+91 92592 92835", rating: "4.8", reviews: 52, address: "Central Chauraha, Firozabad, Agra Region", website: "" },
+      { id: "ls21", name: "Panwar Dental Clinic", niche: "Dental Clinic", city: "Dehradun", phone: "+91 81712 60800", rating: "4.8", reviews: 71, address: "Balawala Road, Miyawala, Dehradun", website: "" },
+      { id: "ls22", name: "Smile Dental Clinic Garhi Cantt", niche: "Dental Clinic", city: "Dehradun", phone: "+91 74090 13115", rating: "4.1", reviews: 19, address: "Gopal Plaza, Garhi Cantt, Dehradun", website: "" },
+      { id: "ls23", name: "Dr Gaurav Memorial Dental Clinic", niche: "Dental Clinic", city: "Dehradun", phone: "+91 94589 00987", rating: "5.0", reviews: 64, address: "Nehrugram Road, Garhwali Colony, Dehradun", website: "" },
+      { id: "ls24", name: "Sri Sai Dental & Implant Center", niche: "Dental Clinic", city: "Dehradun", phone: "+91 97581 65033", rating: "4.9", reviews: 135, address: "Raipur-Nehrugram Road, Dehradun", website: "" },
+      { id: "ls25", name: "Dr. Ram Dental Clinic", niche: "Dental Clinic", city: "Dehradun", phone: "+91 86790 92498", rating: "5.0", reviews: 53, address: "Pushkar Mandir Road, Rishikesh-Dehradun", website: "" },
+      { id: "ls26", name: "The Captain Gym", niche: "Gym & Fitness", city: "Dehradun", phone: "+91 79830 99898", rating: "4.7", reviews: 45, address: "Kadhar, Dehradun", website: "" },
+      { id: "ls27", name: "Pro Ultimate Gym Race Course", niche: "Gym & Fitness", city: "Dehradun", phone: "+91 95681 52000", rating: "4.4", reviews: 68, address: "Haridwar Road, Race Course, Dehradun", website: "" },
+      { id: "ls28", name: "Pro Ultimate Gym Rajender Nagar", niche: "Gym & Fitness", city: "Dehradun", phone: "+91 98898 89404", rating: "4.3", reviews: 96, address: "Kaulagarh Road, Rajender Nagar, Dehradun", website: "" },
+      { id: "ls29", name: "Dental Care Centre Kanke Road", niche: "Dental Clinic", city: "Ranchi", phone: "+91 87093 53102", rating: "4.8", reviews: 42, address: "Kanke Road, Ranchi", website: "http://dentalcarecentreranchi.com/" },
+      { id: "ls30", name: "White Oak Dental Studio", niche: "Dental Clinic", city: "Ranchi", phone: "+91 90318 03473", rating: "4.9", reviews: 88, address: "SS Square, Morabadi, Ranchi", website: "" },
+      { id: "ls31", name: "ME Fitness Gym", niche: "Gym & Fitness", city: "Delhi", phone: "+91 98997 61503", rating: "4.5", reviews: 201, address: "Dakshinpuri Road, Madangir, New Delhi", website: "" },
+      { id: "ls32", name: "Dr Ram Dental Clinic Shahdara", niche: "Dental Clinic", city: "Delhi", phone: "+91 92112 60490", rating: "4.6", reviews: 166, address: "100 Futa Road, Shahdara, Delhi", website: "" },
+      { id: "ls33", name: "Galaxy Banquet Saki Naka", niche: "Hotel & Banquet", city: "Mumbai", phone: "+91 98200 58029", rating: "4.2", reviews: 2062, address: "AK Road, Saki Naka, Mumbai", website: "" },
+      { id: "ls34", name: "The Bhoj Company", niche: "Restaurant & Cafe", city: "Kolkata", phone: "+91 98304 28800", rating: "4.2", reviews: 2922, address: "BBD Bag, Lal Bazar, Kolkata", website: "" },
+      { id: "ls35", name: "Sufia Restaurant", niche: "Restaurant & Cafe", city: "Kolkata", phone: "+91 74397 78869", rating: "4.2", reviews: 1962, address: "2 Zakaria Street, Kolkata", website: "" },
+      { id: "ls36", name: "Pou Hing Eating House", niche: "Restaurant & Cafe", city: "Kolkata", phone: "+91 97483 76989", rating: "4.3", reviews: 1068, address: "Poddar Court, Tiretti, Kolkata", website: "" },
+      { id: "ls37", name: "Tasty Treat Restaurant", niche: "Restaurant & Cafe", city: "Kolkata", phone: "+91 90075 22228", rating: "4.5", reviews: 731, address: "75 Ganesh Chandra Ave, Kolkata", website: "" },
+      { id: "ls38", name: "Baig Sahab Restaurant & Caterers", niche: "Restaurant & Cafe", city: "Kolkata", phone: "+91 89106 06381", rating: "4.4", reviews: 932, address: "261 BB Ganguly Street, Bowbazar, Kolkata", website: "" },
+      { id: "ls39", name: "Seetala Udipi Eating House", niche: "Restaurant & Cafe", city: "Kolkata", phone: "+91 98304 19723", rating: "4.3", reviews: 1429, address: "Princep Street, Bowbazar, Kolkata", website: "" },
+      { id: "ls40", name: "Al Baik Fast Food Corner", niche: "Restaurant & Cafe", city: "Kolkata", phone: "+91 98366 21703", rating: "4.0", reviews: 1208, address: "54 Phears Lane, Tiretti, Kolkata", website: "" },
+      { id: "ls41", name: "D-Ley Chinese Eating House", niche: "Restaurant & Cafe", city: "Kolkata", phone: "+91 98306 83227", rating: "4.1", reviews: 976, address: "16 Black Burn Lane, Tiretti, Kolkata", website: "" },
+      { id: "ls42", name: "City Square Banquet & Club", niche: "Hotel & Banquet", city: "Patna", phone: "+91 80480 67637", rating: "4.4", reviews: 23, address: "RPS Nagar, Danapur, Patna", website: "" },
+      { id: "ls43", name: "V Forever Beauty Parlour", niche: "Salon & Spa", city: "Gwalior", phone: "+91 62642 78891", rating: "4.7", reviews: 80, address: "City Centre, Gwalior", website: "" },
+      { id: "ls44", name: "Yog Temple Wellness & Yoga", niche: "Gym & Fitness", city: "Indore", phone: "+91 94250 58031", rating: "4.8", reviews: 96, address: "13 Navlakha Road, Sajan Nagar, Indore", website: "" },
+      { id: "ls45", name: "Apple Mind And Body Temple", niche: "Gym & Fitness", city: "Indore", phone: "+91 83192 54513", rating: "4.7", reviews: 864, address: "311 Nath Mandir Rd, South Tukoganj, Indore", website: "" },
+      { id: "ls46", name: "Dr Avinash Mandloi Clinic", niche: "Dental Clinic", city: "Indore", phone: "+91 91664 14906", rating: "5.0", reviews: 50, address: "Lal Bagh Road, Indore", website: "" }
     ];
 
     const REAL_EXAMPLES = [

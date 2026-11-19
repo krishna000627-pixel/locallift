@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Central Lab Indore — Book blood tests, full-body checkups (91 parameters), and 60-minute home sample collection in Indore. ★ 4.6 (1,444+ reviews), Yeshwant Plaza, Opp. Railway Station." />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230a192f'/%3E%3Cpath d='M22 18h20v8H22zM28 18v28h8V18z' fill='%2310b981'/%3E%3C/svg%3E" />
+  <title>Central Lab Indore | Book Blood Tests, Home Collection &amp; Smart Reports</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    section[id] { scroll-margin-top: 84px; }
+    input[type="date"] {
+      color: #0f172a !important;
+      background-color: #ffffff !important;
+      min-height: 44px;
+      color-scheme: light;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900 antialiased pb-20">
+  <!-- Top Utility Bar (Dr Lal / Metropolis style) -->
+  <div class="bg-[#0a192f] text-slate-200 text-xs py-2 px-4 border-b border-slate-800">
+    <div class="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <span>📍 Main Hub: Yeshwant Plaza, M-117 &amp; 118, Opp. Railway Station, Indore</span>
+      <span class="font-semibold text-emerald-300">Open Mon–Sun: 6:00 AM – 10:00 PM · 📞 +91 78699 99930</span>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="sticky top-0 z-30 bg-white/95 backdrop-blur border-b border-slate-200 shadow-xs">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between gap-3">
+      <a href="#top" class="flex items-center gap-2.5">
+        <span class="w-9 h-9 rounded-xl bg-[#0a192f] text-emerald-400 font-black text-sm flex items-center justify-center">CL</span>
+        <div>
+          <div class="font-extrabold text-base sm:text-lg text-[#0a192f] leading-none">Central Lab Indore</div>
+          <div class="text-[10px] font-semibold text-slate-500 mt-0.5">4.6 ★ (1,444+ Reviews) · 5 Indore Centres</div>
+        </div>
+      </a>
+      <div class="hidden md:flex items-center gap-5 text-sm font-medium text-slate-600">
+        <a href="#tests" class="hover:text-[#0a192f]">Tests &amp; Packages</a>
+        <a href="#smart-report" class="hover:text-[#0a192f]">Smart Reports</a>
+        <a href="#branches" class="hover:text-[#0a192f]">5 Branches</a>
+        <a href="#location" class="hover:text-[#0a192f]">Directions</a>
+        <button type="button" id="navCartBtn" class="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold transition flex items-center gap-1.5">
+          <span>Book Test</span>
+          <span id="navCartCount" class="px-1.5 py-0.5 rounded-full bg-white/20 text-[11px] font-extrabold">0</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero with Instant Search Bar (Orange Health / Lal PathLabs UX) -->
+  <section id="top" class="bg-gradient-to-br from-[#0a192f] via-slate-900 to-[#0f2942] text-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-14 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+      <div class="lg:col-span-7 space-y-5">
+        <div class="flex flex-wrap items-center gap-2">
+          <span class="px-3 py-1 rounded-full bg-amber-400/15 text-amber-300 text-xs font-bold border border-amber-400/30">
+            ★ 4.6 Rated · 1,444+ Google Reviews
+          </span>
+          <span class="px-3 py-1 rounded-full bg-emerald-500/15 text-emerald-300 text-xs font-bold border border-emerald-400/30">
+            60-Min Home Pickup from 6:00 AM
+          </span>
+        </div>
+        <h1 class="text-3xl sm:text-5xl font-black tracking-tight leading-tight">
+          Book Blood Tests &amp; Full Body Checkups in Indore.
+        </h1>
+        <p class="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl">
+          Barcoded sample tracking, NABL-grade automated analyzers, and color-coded Smart Reports online—from Central Lab's Yeshwant Plaza hub and 4 Indore collection centres.
+        </p>
+
+        <!-- Hero Search + Quick Chips -->
+        <div class="bg-white rounded-2xl p-2 flex flex-col sm:flex-row gap-2 shadow-xl max-w-xl">
+          <input id="heroSearch" type="text" placeholder="Search CBC, Thyroid, HbA1c, Full Body..." class="flex-1 px-3.5 py-2.5 text-sm text-slate-900 focus:outline-none rounded-xl" />
+          <a href="#tests" class="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-bold text-center transition">Find Tests</a>
+        </div>
+        <div class="flex flex-wrap items-center gap-2 text-xs text-slate-300">
+          <span class="text-slate-400">Popular:</span>
+          <button type="button" data-q="CBC" class="quick-chip px-2.5 py-1 rounded-full bg-white/10 hover:bg-white/20 transition">CBC (₹190)</button>
+          <button type="button" data-q="Thyroid" class="quick-chip px-2.5 py-1 rounded-full bg-white/10 hover:bg-white/20 transition">Thyroid (₹399)</button>
+          <button type="button" data-q="Full Body" class="quick-chip px-2.5 py-1 rounded-full bg-white/10 hover:bg-white/20 transition">Full Body 91 Params</button>
+          <button type="button" data-q="Diabetes" class="quick-chip px-2.5 py-1 rounded-full bg-white/10 hover:bg-white/20 transition">Diabetes HbA1c</button>
+        </div>
+      </div>
+
+      <div class="lg:col-span-5">
+        <div class="bg-white/5 backdrop-blur rounded-2xl border border-white/15 p-5 space-y-4 shadow-2xl">
+          <img src="../../assets/lab.jpg" alt="Central Lab Indore Automated Diagnostics" class="w-full h-48 object-cover rounded-xl border border-white/10" />
+          <div class="grid grid-cols-3 gap-2.5 text-center">
+            <div class="bg-white/5 rounded-xl p-3">
+              <div class="text-lg font-extrabold text-emerald-400">6 AM</div>
+              <div class="text-[11px] text-slate-300">Daily Fasting</div>
+            </div>
+            <div class="bg-white/5 rounded-xl p-3">
+              <div class="text-lg font-extrabold text-white">4–6 Hrs</div>
+              <div class="text-[11px] text-slate-300">Digital Reports</div>
+            </div>
+            <div class="bg-white/5 rounded-xl p-3">
+              <div class="text-lg font-extrabold text-sky-400">0 ₹</div>
+              <div class="text-[11px] text-slate-300">Home Pickup Fee</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4-Step Process Trust Strip (Orange Health / Lal PathLabs style) -->
+  <section class="bg-white border-b border-slate-200 py-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 grid grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
+      <div class="flex items-start gap-3">
+        <span class="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-800 font-extrabold flex items-center justify-center shrink-0">1</span>
+        <div><div class="font-bold text-[#0a192f]">Add Tests to Basket</div><p class="text-slate-500 mt-0.5">Transparent pricing with parameter counts &amp; fasting info.</p></div>
+      </div>
+      <div class="flex items-start gap-3">
+        <span class="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-800 font-extrabold flex items-center justify-center shrink-0">2</span>
+        <div><div class="font-bold text-[#0a192f]">Home Pickup or Walk-In</div><p class="text-slate-500 mt-0.5">60-min home slot or priority check-in at Yeshwant Plaza.</p></div>
+      </div>
+      <div class="flex items-start gap-3">
+        <span class="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-800 font-extrabold flex items-center justify-center shrink-0">3</span>
+        <div><div class="font-bold text-[#0a192f]">Barcoded Lab Processing</div><p class="text-slate-500 mt-0.5">Sealed &amp; logged on automated clinical analyzers.</p></div>
+      </div>
+      <div class="flex items-start gap-3">
+        <span class="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-800 font-extrabold flex items-center justify-center shrink-0">4</span>
+        <div><div class="font-bold text-[#0a192f]">Color-Coded Smart PDF</div><p class="text-slate-500 mt-0.5">Download online in 4–6 hours with normal range insights.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Organ & Condition Filter + Multi-Test Cart Grid -->
+  <section id="tests" class="max-w-6xl mx-auto px-4 sm:px-6 py-12 space-y-6">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+      <div>
+        <span class="text-xs font-bold uppercase tracking-wider text-emerald-700">Browse by Organ or Health Goal</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-[#0a192f]">Popular Blood Tests &amp; Checkups</h2>
+      </div>
+      <input id="testSearch" type="text" placeholder="Filter tests (CBC, Lipid, Vitamin D, Liver)..." class="w-full md:w-80 rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500" />
+    </div>
+
+    <div class="flex flex-wrap gap-2">
+      <button type="button" data-cat="all" class="c-tab px-3.5 py-1.5 rounded-lg text-xs font-bold bg-[#0a192f] text-white">All Tests</button>
+      <button type="button" data-cat="full" class="c-tab px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-white text-slate-700 border border-slate-200">Full Body (91 Params)</button>
+      <button type="button" data-cat="hormone" class="c-tab px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-white text-slate-700 border border-slate-200">Thyroid &amp; Diabetes</button>
+      <button type="button" data-cat="organ" class="c-tab px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-white text-slate-700 border border-slate-200">Heart, Liver &amp; Kidney</button>
+      <button type="button" data-cat="fever" class="c-tab px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-white text-slate-700 border border-slate-200">Fever &amp; Vitamins</button>
+    </div>
+
+    <div id="testGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+
+    <!-- Prescription Helper Banner (Metropolis pattern) -->
+    <div class="bg-sky-50 border border-sky-200 rounded-2xl p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <div class="space-y-1">
+        <h3 class="text-sm font-extrabold text-[#0a192f]">Have a Doctor's Prescription or Unsure Which Test?</h3>
+        <p class="text-xs text-slate-600">Enter your phone number in the booking form below or call <strong class="text-[#0a192f]">+91 78699 99930</strong>—our lab desk will verify tests &amp; fasting prep in 5 minutes.</p>
+      </div>
+      <a href="#checkout" class="px-4 py-2 rounded-xl bg-[#0a192f] text-white text-xs font-bold shrink-0">Request Callback &rarr;</a>
+    </div>
+  </section>
+
+  <!-- Color-Coded Smart Report Preview (Dr Lal Smart Report style) -->
+  <section id="smart-report" class="bg-[#0a192f] text-white py-14">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+      <div class="lg:col-span-5 space-y-4">
+        <span class="inline-block px-2.5 py-0.5 rounded-full bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 text-xs font-semibold">Central Lab Smart Report</span>
+        <h2 class="text-2xl sm:text-3xl font-bold">Color-Coded Reports Easy to Understand</h2>
+        <p class="text-sm text-slate-300 leading-relaxed">
+          Instead of confusing raw numbers, patients get organ-wise health bands (<span class="text-emerald-400 font-semibold">Optimal</span>, <span class="text-amber-300 font-semibold">Watch</span>) with normal reference ranges—accessible anytime online.
+        </p>
+        <div class="flex gap-2">
+          <input id="reportIdInput" type="text" value="CLI-2026-1444" class="flex-1 rounded-xl bg-slate-900 border border-slate-700 px-3.5 py-2 text-xs text-white focus:outline-none" />
+          <button id="checkReportBtn" type="button" class="px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-xs font-bold transition">Check Status</button>
+        </div>
+        <div id="reportStatusMsg" class="text-xs text-emerald-300 font-medium">Sample #CLI-2026-1444: Verified by MD Pathologist · Ready</div>
+      </div>
+
+      <div class="lg:col-span-7">
+        <div class="bg-white text-slate-900 rounded-2xl p-5 sm:p-6 shadow-2xl space-y-4">
+          <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200 pb-3">
+            <div>
+              <div class="text-[11px] text-slate-500 font-semibold">SMART HEALTH SUMMARY · #CLI-2026-1444</div>
+              <div class="font-bold text-slate-900">Full Body Checkup (91 Parameters)</div>
+            </div>
+            <span class="px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 text-[11px] font-bold">Verified PDF Ready</span>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+            <div class="bg-emerald-50/70 rounded-xl p-3 border border-emerald-200">
+              <div class="flex justify-between"><span class="text-slate-600 font-semibold">Hemoglobin</span><span class="text-emerald-700 font-bold">Optimal</span></div>
+              <div class="text-lg font-extrabold text-slate-900 mt-1">14.2 g/dL</div>
+              <div class="text-[11px] text-slate-500">Ref: 13.0 – 17.0 g/dL</div>
+            </div>
+            <div class="bg-emerald-50/70 rounded-xl p-3 border border-emerald-200">
+              <div class="flex justify-between"><span class="text-slate-600 font-semibold">HbA1c (3-Mo)</span><span class="text-emerald-700 font-bold">Optimal</span></div>
+              <div class="text-lg font-extrabold text-slate-900 mt-1">5.4 %</div>
+              <div class="text-[11px] text-slate-500">Ref: &lt; 5.7 % Non-Diabetic</div>
+            </div>
+            <div class="bg-amber-50/80 rounded-xl p-3 border border-amber-300">
+              <div class="flex justify-between"><span class="text-slate-600 font-semibold">Vitamin D</span><span class="text-amber-700 font-bold">Borderline</span></div>
+              <div class="text-lg font-extrabold text-slate-900 mt-1">22 ng/mL</div>
+              <div class="text-[11px] text-slate-500">Ref: 30 – 100 ng/mL</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 Indore Branches -->
+  <section id="branches" class="bg-white border-b border-slate-200 py-14">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 space-y-6">
+      <div class="text-center max-w-2xl mx-auto space-y-1">
+        <span class="text-xs font-bold uppercase tracking-wider text-emerald-700">Indore Collection Network</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-[#0a192f]">5 Central Lab Centres Across Indore</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="rounded-2xl border-2 border-emerald-500 bg-emerald-50/30 p-5 space-y-1.5">
+          <div class="flex justify-between text-[11px]"><span class="font-bold text-emerald-700 uppercase">Main Hub · 4.6 ★ (1,444)</span><span class="text-slate-500 font-semibold">6 AM – 10 PM</span></div>
+          <h3 class="font-bold text-[#0a192f]">Yeshwant Plaza, Chhoti Gwaltoli</h3>
+          <p class="text-xs text-slate-600">M-117 &amp; 118, Opp. Railway Station · +91 78699 99930</p>
+        </div>
+        <div class="rounded-2xl border border-slate-200 bg-slate-50 p-5 space-y-1.5">
+          <div class="flex justify-between text-[11px]"><span class="font-bold text-slate-600 uppercase">Vijay Nagar · 4.7 ★ (1,034)</span><span class="text-slate-500 font-semibold">7 AM – 9 PM</span></div>
+          <h3 class="font-bold text-[#0a192f]">Omega Tower, Scheme No 54</h3>
+          <p class="text-xs text-slate-600">Mezzanine Floor, Sayaji Club Rd, Vijay Nagar</p>
+        </div>
+        <div class="rounded-2xl border border-slate-200 bg-slate-50 p-5 space-y-1.5">
+          <div class="flex justify-between text-[11px]"><span class="font-bold text-slate-600 uppercase">Palhar Nagar &amp; Malharganj</span><span class="text-slate-500 font-semibold">8 AM – 5 PM</span></div>
+          <h3 class="font-bold text-[#0a192f]">Aashirwad Market / MG Road</h3>
+          <p class="text-xs text-slate-600">Palhar Nagar (+91 78699 99931) · Bada Ganpati</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Checkout Form with Home Collection vs Lab Visit Mode + Cart Summary -->
+  <section id="checkout" class="max-w-2xl mx-auto px-4 sm:px-6 py-14">
+    <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8 space-y-5">
+      <div class="text-center space-y-1">
+        <h2 class="text-2xl font-extrabold text-[#0a192f]">Complete Your Test Booking</h2>
+        <p class="text-xs text-slate-500">Pay online or Cash on Sample Collection.</p>
+      </div>
+
+      <!-- Selected Basket Summary -->
+      <div id="cartSummaryBox" class="rounded-xl bg-slate-50 border border-slate-200 p-3.5 text-xs space-y-1.5">
+        <div class="flex justify-between font-bold text-[#0a192f]">
+          <span id="cartTitle">Selected: 0 Tests</span>
+          <span id="cartTotal" class="text-emerald-700">₹0</span>
+        </div>
+        <div id="cartItemsText" class="text-slate-500">Tap "+ Add" on any test above, or choose a package below.</div>
+      </div>
+
+      <!-- Mode Toggle: Home Collection vs Lab Visit -->
+      <div class="grid grid-cols-2 gap-2 p-1 rounded-xl bg-slate-100">
+        <button type="button" data-mode="Home Sample Collection" class="mode-btn py-2 rounded-lg text-xs font-bold bg-white text-[#0a192f] shadow-xs">🏠 Home Collection (Free)</button>
+        <button type="button" data-mode="Walk-In Lab Visit" class="mode-btn py-2 rounded-lg text-xs font-semibold text-slate-600">🏥 Walk-In Lab Visit</button>
+      </div>
+
+      <form id="labForm" class="space-y-3">
+        <input id="lMode" type="hidden" value="Home Sample Collection" />
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div><label for="lName" class="block text-xs font-semibold text-slate-700 mb-1">Patient Name</label><input id="lName" type="text" required placeholder="e.g. Rajesh Verma" class="w-full rounded-xl border border-slate-300 px-4 py-2.5 text-sm bg-white" /></div>
+          <div><label for="lPhone" class="block text-xs font-semibold text-slate-700 mb-1">Phone Number</label><input id="lPhone" type="tel" required placeholder="+91 98XXX XXXXX" class="w-full rounded-xl border border-slate-300 px-4 py-2.5 text-sm bg-white" /></div>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div><label for="lDate" class="block text-xs font-semibold text-slate-700 mb-1">Collection / Visit Date</label><input id="lDate" type="date" required class="w-full rounded-xl border border-slate-300 px-4 py-2.5 text-sm bg-white font-medium" /></div>
+          <div>
+            <label for="lBranch" class="block text-xs font-semibold text-slate-700 mb-1">Nearest Indore Centre</label>
+            <select id="lBranch" class="w-full rounded-xl border border-slate-300 px-4 py-2.5 text-sm bg-white">
+              <option>Yeshwant Plaza (Opp. Railway Station)</option>
+              <option>Vijay Nagar (Omega Tower)</option>
+              <option>Palhar Nagar (Aashirwad Market)</option>
+              <option>Malharganj (Bada Ganpati)</option>
+              <option>Pipliyahana (Brajeshwari Ext.)</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <span class="block text-xs font-semibold text-slate-700 mb-1.5">Preferred 60-Min Slot</span>
+          <div class="flex flex-wrap gap-2">
+            <button type="button" data-slot="6:00–7:00 AM (Fasting)" class="slot-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-[#0a192f] text-white">6:00–7:00 AM (Fasting)</button>
+            <button type="button" data-slot="7:00–9:00 AM" class="slot-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700">7:00–9:00 AM</button>
+            <button type="button" data-slot="5:00–8:00 PM" class="slot-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700">5:00–8:00 PM</button>
+          </div>
+          <input id="lSlot" type="hidden" value="6:00–7:00 AM (Fasting)" />
+        </div>
+        <div><label for="lAddr" class="block text-xs font-semibold text-slate-700 mb-1">Indore Address / Prescription Notes</label><input id="lAddr" type="text" required placeholder="House/Flat No., Colony (or Prescription test names)" class="w-full rounded-xl border border-slate-300 px-4 py-2.5 text-sm bg-white" /></div>
+        <button type="submit" class="w-full py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm transition">Confirm Booking (Pay at Collection)</button>
+      </form>
+      <div id="labMsg" class="hidden rounded-xl bg-emerald-50 border border-emerald-200 p-3 text-xs text-emerald-900 text-center"></div>
+    </div>
+  </section>
+
+  <!-- Location & Google Maps -->
+  <section id="location" class="max-w-6xl mx-auto px-4 sm:px-6 pb-12">
+    <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center shadow-sm">
+      <div class="lg:col-span-5 space-y-3">
+        <div class="text-xs font-bold uppercase tracking-wider text-emerald-700">Main Hub · Google Maps</div>
+        <h2 class="text-2xl font-extrabold text-[#0a192f]">Central Lab Indore</h2>
+        <p class="text-sm text-slate-600">Yeshwant Plaza, M-117 &amp; 118, Opposite Railway Station, Chhoti Gwaltoli, Indore, MP 452001</p>
+        <p class="text-sm text-slate-600 font-semibold">Hours: Mon–Sun, 6:00 AM – 10:00 PM</p>
+        <p class="text-sm font-bold text-[#0a192f]">📞 +91 78699 99930 · +91 78699 99931</p>
+        <a href="https://www.google.com/maps/search/?api=1&query=Central+Lab+Indore+Yeshwant+Plaza+Chhoti+Gwaltoli" target="_blank" rel="noopener noreferrer" class="inline-flex text-xs font-bold text-emerald-700 hover:underline">Open in Google Maps &rarr;</a>
+      </div>
+      <div class="lg:col-span-7">
+        <iframe title="Central Lab Indore Map" src="https://maps.google.com/maps?q=Yeshwant+Plaza+Chhoti+Gwaltoli+Indore&t=m&z=16&ie=UTF8&iwloc=&output=embed" class="w-full h-64 sm:h-72 rounded-xl border border-slate-200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <footer class="border-t border-slate-200 py-6 text-center text-xs text-slate-500">
+    Central Lab Indore · Yeshwant Plaza, Chhoti Gwaltoli · Custom Preview by LocalLift Studio
+  </footer>
+
+  <!-- Sticky Floating Basket Bar (Dr Lal / Orange Health style) -->
+  <div id="floatingBasket" class="hidden fixed bottom-3 inset-x-4 sm:inset-x-auto sm:right-6 sm:w-96 z-40 bg-[#0a192f] text-white rounded-2xl p-3.5 shadow-2xl border border-emerald-500/40 flex items-center justify-between gap-3">
+    <div class="text-xs">
+      <div id="fbCount" class="font-extrabold text-emerald-300">0 Tests Selected</div>
+      <div id="fbTotal" class="text-slate-300">Total: ₹0</div>
+    </div>
+    <a href="#checkout" class="px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-xs font-extrabold transition">Proceed &rarr;</a>
+  </div>
+
+  <script>
+    function initDateInputs() {
+      const now = new Date();
+      const yyyy = now.getFullYear();
+      const mm = String(now.getMonth() + 1).padStart(2, "0");
+      const dd = String(now.getDate()).padStart(2, "0");
+      const today = `${yyyy}-${mm}-${dd}`;
+      document.querySelectorAll('input[type="date"]').forEach((el) => {
+        el.min = today;
+        if (!el.value) el.value = today;
+      });
+    }
+    initDateInputs();
+
+    const TESTS = [
+      { id: "t1", name: "Complete Full Body Checkup (91 Params)", cat: "full", price: 1499, mrp: 2999, params: "91 Parameters", prep: "10–12h Fasting", tat: "Same Day", desc: "CBC, Lipid, LFT, KFT, Thyroid, HbA1c, Vitamin D, B12 & Urine." },
+      { id: "t2", name: "Complete Blood Count (CBC)", cat: "organ", price: 190, mrp: 300, params: "20 Parameters", prep: "No Fasting", tat: "4 Hours", desc: "Hemoglobin, RBC, WBC, Platelets, MCV & ESR." },
+      { id: "t3", name: "Thyroid Profile (T3, T4, TSH)", cat: "hormone", price: 399, mrp: 600, params: "3 Parameters", prep: "No Fasting", tat: "4 Hours", desc: "Accurate thyroid hormone screening." },
+      { id: "t4", name: "Diabetes Care (HbA1c + Fasting Sugar)", cat: "hormone", price: 380, mrp: 550, params: "2 Parameters", prep: "8h Fasting", tat: "4 Hours", desc: "3-month average glucose & fasting sugar." },
+      { id: "t5", name: "Vitamin D + Vitamin B12 Combo", cat: "fever", price: 999, mrp: 1800, params: "2 Parameters", prep: "No Fasting", tat: "Same Day", desc: "Bone strength, fatigue, and nerve health." },
+      { id: "t6", name: "Liver & Kidney Function (LFT + KFT)", cat: "organ", price: 650, mrp: 1100, params: "23 Parameters", prep: "No Fasting", tat: "Same Day", desc: "Bilirubin, SGOT/SGPT, Creatinine, Urea & Electrolytes." },
+      { id: "t7", name: "Fever Profile (Dengue, Malaria, Typhoid)", cat: "fever", price: 950, mrp: 1500, params: "12 Parameters", prep: "No Fasting", tat: "4 Hours", desc: "Rapid seasonal fever panel with CBC." },
+      { id: "t8", name: "Lipid Profile (Heart & Cholesterol)", cat: "organ", price: 420, mrp: 700, params: "9 Parameters", prep: "10h Fasting", tat: "4 Hours", desc: "HDL, LDL, Triglycerides & Cholesterol ratio." },
+      { id: "t9", name: "Senior Citizen Comprehensive (75+ Tests)", cat: "full", price: 1899, mrp: 3600, params: "75+ Parameters", prep: "10h Fasting", tat: "Same Day", desc: "Heart, diabetes, bone, kidney & thyroid screening." }
+    ];
+
+    let activeCat = "all";
+    const cart = new Map();
+
+    function updateCartUI() {
+      const items = Array.from(cart.values());
+      const total = items.reduce((s, x) => s + x.price, 0);
+      document.getElementById("navCartCount").textContent = items.length;
+      document.getElementById("cartTitle").textContent = `Selected: ${items.length} Test(s)`;
+      document.getElementById("cartTotal").textContent = `₹${total.toLocaleString("en-IN")}`;
+      document.getElementById("cartItemsText").textContent = items.length ? items.map(x => x.name).join(" + ") : "Tap '+ Add' on any test above, or submit your prescription below.";
+      const fb = document.getElementById("floatingBasket");
+      if (items.length > 0) {
+        fb.classList.remove("hidden");
+        document.getElementById("fbCount").textContent = `${items.length} Test(s) in Basket`;
+        document.getElementById("fbTotal").textContent = `Total: ₹${total.toLocaleString("en-IN")} · Free Pickup`;
+      } else {
+        fb.classList.add("hidden");
+      }
+    }
+
+    function renderTests(q = "") {
+      const s = q.trim().toLowerCase();
+      let list = activeCat === "all" ? TESTS : TESTS.filter(t => t.cat === activeCat);
+      if (s) list = list.filter(t => `${t.name} ${t.desc}`.toLowerCase().includes(s));
+      document.getElementById("testGrid").innerHTML = list.map(t => {
+        const inCart = cart.has(t.id);
+        return `
+          <div class="bg-white rounded-2xl border ${inCart ? 'border-emerald-500 ring-1 ring-emerald-500' : 'border-slate-200'} p-5 flex flex-col justify-between gap-3 shadow-sm">
+            <div class="space-y-2">
+              <div class="flex flex-wrap gap-1.5 text-[10px] font-bold">
+                <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700">${t.params}</span>
+                <span class="px-2 py-0.5 rounded bg-sky-50 text-sky-800">${t.prep}</span>
+                <span class="px-2 py-0.5 rounded bg-emerald-50 text-emerald-700">Report: ${t.tat}</span>
+              </div>
+              <h3 class="font-bold text-[#0a192f] text-sm">${t.name}</h3>
+              <p class="text-xs text-slate-600">${t.desc}</p>
+            </div>
+            <div class="flex items-center justify-between pt-2 border-t border-slate-100">
+              <div>
+                <span class="text-base font-extrabold text-[#0a192f]">₹${t.price}</span>
+                <span class="text-xs text-slate-400 line-through ml-1">₹${t.mrp}</span>
+              </div>
+              <button type="button" data-tid="${t.id}" class="add-cart-btn px-3.5 py-1.5 rounded-xl text-xs font-bold transition ${inCart ? 'bg-emerald-600 text-white' : 'bg-[#0a192f] hover:bg-emerald-600 text-white'}">
+                ${inCart ? '✓ Added' : '+ Add'}
+              </button>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    document.getElementById("testGrid").addEventListener("click", (e) => {
+      const btn = e.target.closest(".add-cart-btn");
+      if (!btn) return;
+      const t = TESTS.find(x => x.id === btn.dataset.tid);
+      if (!t) return;
+      if (cart.has(t.id)) cart.delete(t.id);
+      else cart.set(t.id, t);
+      updateCartUI();
+      renderTests(document.getElementById("testSearch").value);
+    });
+
+    document.querySelectorAll(".c-tab").forEach(b => b.addEventListener("click", () => {
+      document.querySelectorAll(".c-tab").forEach(x => x.className = "c-tab px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-white text-slate-700 border border-slate-200");
+      b.className = "c-tab px-3.5 py-1.5 rounded-lg text-xs font-bold bg-[#0a192f] text-white";
+      activeCat = b.dataset.cat;
+      renderTests(document.getElementById("testSearch").value);
+    }));
+
+    document.getElementById("heroSearch").addEventListener("input", e => {
+      document.getElementById("testSearch").value = e.target.value;
+      renderTests(e.target.value);
+    });
+    document.getElementById("testSearch").addEventListener("input", e => renderTests(e.target.value));
+    document.querySelectorAll(".quick-chip").forEach(ch => ch.addEventListener("click", () => {
+      document.getElementById("testSearch").value = ch.dataset.q;
+      document.getElementById("heroSearch").value = ch.dataset.q;
+      activeCat = "all";
+      renderTests(ch.dataset.q);
+      document.getElementById("tests").scrollIntoView({ behavior: "smooth" });
+    }));
+
+    document.getElementById("navCartBtn").addEventListener("click", () => {
+      document.getElementById("checkout").scrollIntoView({ behavior: "smooth" });
+    });
+
+    document.querySelectorAll(".mode-btn").forEach(btn => btn.addEventListener("click", () => {
+      document.querySelectorAll(".mode-btn").forEach(b => b.className = "mode-btn py-2 rounded-lg text-xs font-semibold text-slate-600");
+      btn.className = "mode-btn py-2 rounded-lg text-xs font-bold bg-white text-[#0a192f] shadow-xs";
+      document.getElementById("lMode").value = btn.dataset.mode;
+    }));
+
+    document.querySelectorAll(".slot-btn").forEach(btn => btn.addEventListener("click", () => {
+      document.querySelectorAll(".slot-btn").forEach(b => b.className = "slot-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700");
+      btn.className = "slot-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-[#0a192f] text-white";
+      document.getElementById("lSlot").value = btn.dataset.slot;
+    }));
+
+    document.getElementById("checkReportBtn").addEventListener("click", () => {
+      const id = document.getElementById("reportIdInput").value.trim() || "CLI-2026-1444";
+      document.getElementById("reportStatusMsg").textContent = `Sample #${id}: Verified by MD Pathologist · Ready`;
+    });
+
+    document.getElementById("labForm").addEventListener("submit", e => {
+      e.preventDefault();
+      const name = document.getElementById("lName").value.trim();
+      const mode = document.getElementById("lMode").value;
+      const dt = document.getElementById("lDate").value;
+      const slot = document.getElementById("lSlot").value;
+      const items = Array.from(cart.values()).map(x => x.name).join(", ") || "Prescription / Callback";
+      const box = document.getElementById("labMsg");
+      box.textContent = `${mode} booked for ${name} (${items}) on ${dt} (${slot}). Central Lab Indore will confirm shortly.`;
+      box.classList.remove("hidden");
+      e.target.reset();
+      initDateInputs();
+    });
+
+    renderTests();
+    updateCartUI();
+  </script>
+</body>
+</html>
